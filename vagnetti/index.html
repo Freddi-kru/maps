@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css" />
+        <link rel="stylesheet" type="text/css" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/MarkerCluster.css" />
+        <link rel="stylesheet" href="css/MarkerCluster.Default.css" />
+        <link rel="stylesheet" href="css/leaflet-measure.css" />
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet-heat.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/OSMBuildings-Leaflet.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/leaflet-tilelayer-wmts.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/leaflet-measure.js"></script>
+        <script src="js/leaflet.markercluster.js"></script>
+        <script src="data/378km1.js"></script>
+        <script src="data/Vladimiro2.js"></script>
+        <script>
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:20, minZoom:1
+        })
+        var hash = new L.Hash(map);
+        map.attributionControl.addAttribution('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a>');
+        var measureControl = new L.Control.Measure({
+            position: 'topleft',
+            primaryLengthUnit: 'meters',
+            secondaryLengthUnit: 'kilometers',
+            primaryAreaUnit: 'sqmeters',
+            secondaryAreaUnit: 'hectares'
+        });
+        measureControl.addTo(map);
+        var bounds_group = new L.featureGroup([]);
+        var basemap0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 20
+        });
+        basemap0.addTo(map);
+        var basemap1 = L.tileLayer('http://a.tile.stamen.com/toner/{z}/{x}/{y}.png', {
+            attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>,<a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Mapdata: &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            maxZoom: 20
+        });
+        var basemap2 = L.tileLayer.wms('http://213.215.135.196/reflector/open/service', {
+                layers: 'rv1',
+                format: 'image/png',
+                uppercase: true,
+                transparent: true,
+                continuousWorld : true,
+                opacity: 1.0,
+                attribution: 'Satellite: &copy; <a href="http://www.realvista.it/website/Joomla/">Realvista</a>'
+            });
+        
+        function setBounds() {
+            if (bounds_group.getLayers().length) {
+                map.fitBounds(bounds_group.getBounds());
+            }
+        }
+        function geoJson2heat(geojson, weight) {
+          return geojson.features.map(function(feature) {
+            return [
+              feature.geometry.coordinates[1],
+              feature.geometry.coordinates[0],
+              feature.properties[weight]
+            ];
+          });
+        }
+            var overlay_eGeosOrtofotoRealVista100 = L.tileLayer.wms('http://213.215.135.196/reflector/open/service', {
+                layers: 'rv1',
+                format: 'image/png',
+                uppercase: true,
+                transparent: true,
+                continuousWorld : true,
+                opacity: 1.0
+            });
+        
+        function pop_378km1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FID'] !== null ? Autolinker.link(String(feature.properties['FID'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent);
+        }
+
+        function style_378km1() {
+            return {
+                pane: 'pane_378km1',
+                opacity: 1,
+                color: 'rgba(227,26,28,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fillOpacity: 0,
+            }
+        }
+        map.createPane('pane_378km1');
+        map.getPane('pane_378km1').style.zIndex = 401;
+        map.getPane('pane_378km1').style['mix-blend-mode'] = 'normal';
+    var layer_378km1 = new L.geoJson(json_378km1, {
+        attribution: '<a href=""></a>',
+        pane: 'pane_378km1',
+        onEachFeature: pop_378km1,
+        style: style_378km1
+    });
+        bounds_group.addLayer(layer_378km1);
+        map.addLayer(layer_378km1);
+        function pop_Vladimiro2(feature, layer) {
+        }
+
+        function style_Vladimiro2() {
+            return {
+                pane: 'pane_Vladimiro2',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fillOpacity: 1,
+                fillColor: 'rgba(227,26,28,1.0)',
+            }
+        }
+        map.createPane('pane_Vladimiro2');
+        map.getPane('pane_Vladimiro2').style.zIndex = 402;
+        map.getPane('pane_Vladimiro2').style['mix-blend-mode'] = 'normal';
+        var layer_Vladimiro2 = new L.geoJson(json_Vladimiro2, {
+            attribution: '<a href=""></a>',
+            pane: 'pane_Vladimiro2',
+            onEachFeature: pop_Vladimiro2,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Vladimiro2(feature))
+            }
+        });
+        bounds_group.addLayer(layer_Vladimiro2);
+        map.addLayer(layer_Vladimiro2);
+        var title = new L.Control();
+		title.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+			this.update();
+			return this._div;
+	    };
+	    title.update = function () {
+			this._div.innerHTML = '<h2>Caro Conte Vlad</h2> La veggo buia, sarà una bella caccia al tesoro trovare sta civile abitazione'
+		};
+        title.addTo(map);
+        var baseMaps = {'OSM': basemap0, 'Stamen Toner': basemap1, "Satellite (e-Geos RealVista 1.0)": basemap2};
+        L.control.layers(baseMaps,{'<img src="legend/Vladimiro2.png" /> Vladimiro': layer_Vladimiro2,'<img src="legend/378km1.png" /> 378 km': layer_378km1,},{collapsed:false}).addTo(map);
+        setBounds();
+        </script>
+    </body>
+</html>
