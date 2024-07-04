@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="14.795777mm"
+   height="7.233067mm"
+   viewBox="0 0 14.795777 7.233067"
+   version="1.1"
+   id="svg1967"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="segnalino_cai.svg">
+  <defs
+     id="defs1961" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="11.920728"
+     inkscape:cx="23.856277"
+     inkscape:cy="12.015148"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1853"
+     inkscape:window-height="1025"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-nodes="true"
+     inkscape:bbox-paths="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-midpoints="true">
+    <sodipodi:guide
+       position="5.1714893,6.4144224"
+       orientation="0,1"
+       id="guide2826"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="8.3454076,0.77683316"
+       orientation="0,1"
+       id="guide2828"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata1964">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Livello 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-104.4902,-60.550727)">
+    <g
+       id="g8684"
+       transform="matrix(0.17646772,0,0,-0.1943149,105.39585,67.521004)">
+      <path
+         d="m 0,0 c -1.977,0 -3.584,1.608 -3.584,3.585 v 27.354 c 0,1.977 1.607,3.585 3.584,3.585 h 73.5 c 1.976,0 3.584,-1.608 3.584,-3.585 V 3.585 C 77.084,1.608 75.476,0 73.5,0 Z"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path8686"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       id="g8692"
+       transform="matrix(0.12446821,0,0,-0.18621187,107.79257,66.637517)">
+      <path
+         d="m 0,0 c 0,-1.091 -0.893,-1.984 -1.984,-1.984 h -16.407 c -1.091,0 -1.984,0.893 -1.984,1.984 v 26.221 c 0,1.091 0.893,1.984 1.984,1.984 H -1.984 C -0.893,28.205 0,27.312 0,26.221 Z"
+         style="fill:#dd0b14;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path8694"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       id="g8696"
+       transform="matrix(0.12991489,0,0,-0.18674934,118.60717,66.63645)">
+      <path
+         d="m 0,0 c 0,-1.092 -0.893,-1.984 -1.984,-1.984 h -16.407 c -1.091,0 -1.984,0.892 -1.984,1.984 v 26.22 c 0,1.091 0.893,1.984 1.984,1.984 H -1.984 C -0.893,28.204 0,27.311 0,26.22 Z"
+         style="fill:#dd0b14;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path8698"
+         inkscape:connector-curvature="0" />
+    </g>
+    <rect
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.50014639;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
+       id="rect2824"
+       width="14.29563"
+       height="6.7329206"
+       x="104.74027"
+       y="60.8008"
+       ry="0.71024746" />
+  </g>
+</svg>

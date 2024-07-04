@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Capa_1"
+   x="0px"
+   y="0px"
+   width="512px"
+   height="512px"
+   viewBox="0 0 511.626 511.627"
+   style="enable-background:new 0 0 511.626 511.627;"
+   xml:space="preserve"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="camera-retro_white.svg"
+   inkscape:export-filename="/home/user/OSM/click_perugia/icone/camera-retro_white.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90"><metadata
+   id="metadata45"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs43" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1869"
+   inkscape:window-height="1056"
+   id="namedview41"
+   showgrid="false"
+   inkscape:zoom="0.4609375"
+   inkscape:cx="-28.20339"
+   inkscape:cy="256"
+   inkscape:window-x="51"
+   inkscape:window-y="24"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Capa_1" />
+<g
+   id="g3"
+   transform="matrix(0.85448133,0,0,0.85448133,37.22514,37.22564)">
+	<g
+   id="g5">
+		<path
+   d="M 500.922,47.248 C 493.786,40.115 485.173,36.542 475.084,36.542 H 36.547 c -10.09,0 -18.704,3.576 -25.841,10.706 C 3.571,54.387 0,63 0,73.089 v 365.447 c 0,10.089 3.567,18.699 10.706,25.838 c 7.141,7.139 15.75,10.711 25.841,10.711 h 438.531 c 10.092,0 18.706,-3.572 25.845,-10.711 c 7.132,-7.139 10.704,-15.749 10.704,-25.838 V 73.089 C 511.626,63.004 508.054,54.391 500.922,47.248 z M 73.089,54.814 H 182.725 V 91.36 H 73.089 V 54.814 z M 475.084,438.536 H 36.547 v -36.545 h 438.538 v 36.545 l -10e-4,0 z M 146.177,274.656 c 0,-30.263 10.71,-56.103 32.121,-77.516 c 21.416,-21.411 47.251,-32.117 77.515,-32.117 c 30.266,0 56.104,10.707 77.516,32.117 c 21.412,21.413 32.117,47.253 32.117,77.516 c 0,30.266 -10.705,56.103 -32.117,77.515 c -21.412,21.413 -47.25,32.121 -77.516,32.121 c -30.264,0 -56.099,-10.708 -77.515,-32.121 C 156.884,330.759 146.177,304.922 146.177,274.656 z M 475.084,112.492 v 33.686 H 36.547 v -36.542 h 183.869 l 18.271,-36.543 h 236.397 v 39.399 l 0,0 z"
+   id="path7"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff" />
+		<path
+   d="m 307.488,326.334 c 14.277,-14.277 21.416,-31.501 21.416,-51.678 c 0,-20.174 -7.139,-37.401 -21.416,-51.675 c -14.273,-14.275 -31.497,-21.414 -51.675,-21.414 c -20.177,0 -37.4,7.139 -51.678,21.414 c -14.272,14.274 -21.411,31.501 -21.411,51.675 c 0,20.177 7.135,37.4 21.411,51.678 c 14.277,14.274 31.504,21.412 51.678,21.412 c 20.178,0 37.401,-7.138 51.675,-21.412 z M 236.396,254.67 c -5.33,5.332 -7.993,11.803 -7.993,19.415 c 0,2.665 -0.855,4.855 -2.57,6.566 c -1.713,1.715 -3.899,2.566 -6.567,2.566 c -2.666,0 -4.853,-0.852 -6.567,-2.566 c -1.713,-1.711 -2.568,-3.901 -2.568,-6.566 c 0,-12.563 4.473,-23.314 13.418,-32.261 c 8.947,-8.945 19.701,-13.417 32.264,-13.417 c 2.663,0 4.853,0.854 6.567,2.568 c 1.715,1.709 2.57,3.899 2.57,6.563 c 0,2.666 -0.855,4.856 -2.574,6.571 c -1.714,1.713 -3.904,2.568 -6.566,2.568 c -7.614,0.001 -14.084,2.664 -19.414,7.993 z"
+   id="path9"
+   inkscape:connector-curvature="0"
+   style="fill:#ffffff" />
+	</g>
+</g>
+<g
+   id="g11">
+</g>
+<g
+   id="g13">
+</g>
+<g
+   id="g15">
+</g>
+<g
+   id="g17">
+</g>
+<g
+   id="g19">
+</g>
+<g
+   id="g21">
+</g>
+<g
+   id="g23">
+</g>
+<g
+   id="g25">
+</g>
+<g
+   id="g27">
+</g>
+<g
+   id="g29">
+</g>
+<g
+   id="g31">
+</g>
+<g
+   id="g33">
+</g>
+<g
+   id="g35">
+</g>
+<g
+   id="g37">
+</g>
+<g
+   id="g39">
+</g>
+</svg>

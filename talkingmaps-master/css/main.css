@@ -1,0 +1,541 @@
+/* Extra small devices (portrait phones, less than 576px)*/
+/* No media query since this is the default in Bootstrap*/
+
+.TO-DOs{
+  color:red;
+  font-weight:bolder;
+}
+
+/* override bootstrap CSS */
+.container-fluid, .row, #main_slides_container{
+    margin-left:0px!important;
+    margin-right:0px!important;
+    padding-left:0px!important;
+    padding-right:0px!important;
+    width:100%;
+}
+
+#main_slides_container, #main_slides_container .slide-main-area{
+  overflow:hidden;
+}
+
+.btn-success{
+    color: #fff!important;
+    background-color: #94c72b!important;
+    border-color: #94c72b!important;
+    box-shadow: 0px 5px 10px -1px silver!important;
+}
+
+label {
+    font-size: smaller;
+}
+
+a.this_page {
+  color:white;
+}
+
+.nav-link{
+    color:#17a2b8!important;
+}
+
+.logo{
+    width:50px;
+    margin-right:10px;
+}
+
+#loader img{
+    margin: 0;
+    padding: 0px;
+    position: absolute;
+    left: 16px;
+    top: 15px;
+    opacity: 0.5;
+    width: 60px;
+    z-index: -1;
+}
+
+/* change image during loading */
+#empty_loading_background{
+    z-index: 1001;
+    text-align: center;
+    vertical-align: middle;
+    text-shadow: 0px 1px 5px #757575;
+    background-image: url(../imgs/loading_img1.jpg);
+    width: 100%;
+    height: -webkit-fill-available;
+    background-size: cover;
+}
+
+.loading_img{
+    border-radius: 10px;
+    box-shadow: 0px 0px 60px 20px #00000026;
+    width: 50%;
+    margin-top: 10px;
+    border: 2px solid #000000db;
+    opacity: 0.9;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.tm-logo-icon{
+  width: 55px;
+  height: 35px;
+  display: inline-block;
+  background-image: url('../site/img/tm_logo.png');
+  background-size: 50px;
+  background-repeat: no-repeat;
+}
+
+nav.navbar{
+    display:none;
+    position:fixed;
+    background-color: rgba(0, 0, 0, 0.64)!important;
+}
+
+.navbar-light .navbar-brand{
+    color:white!important;
+}
+
+.navbar{
+    position:fixed;
+    z-index:1000;
+    height:60px;
+    width:100%;
+    background-color: #e6e6e6c7!important;
+}
+
+.navbar .btn{
+    margin-left: 3px;
+}
+
+.navbar #load_db{
+    /*padding:1px;*/
+}
+
+.maincontent{
+    background-image:url(../imgs/mtx.jpg);
+    position:absolute;
+    height:-webkit-fill-available;
+    z-index:0;
+    display:table;
+    width:100%;
+}
+
+.floatingcontent{
+    background-color: #000000b8;
+    position: fixed;
+    height: 98%;
+    margin-left: 1%!important;
+    /*box-shadow: 0px 0px 15px 3px #17a2b85c;*/
+    overflow-y: scroll;
+    z-index:1;
+}
+
+/* this class is dinamically overridden by jquery */
+.expanded_floating{
+    width:35%;
+}
+
+.minimized_floating{
+    width:5px!important;
+    opacity:0.1;
+}
+
+.story_slide_floating{
+    height:103%;
+}
+
+.toolbox-left-zero{
+    left:2%!important;
+}
+
+div.story_toolbox{
+    display:none;
+    position:fixed;
+    left:36%;
+    margin:5px;
+    border:1px solid silver;
+    border-radius:5px;
+    padding:3px;
+    background-color: #fafafaa3;
+    z-index:1000;
+    width:3em;
+    top:40%;
+}
+
+button.editStory{
+    border-radius:100%;
+    border:unset;
+    margin:5px;
+    background-color:silver;
+    width:2em;
+}
+
+.spaced-top{
+    margin-top:65px!important;
+}
+
+.vertical-middle{
+    vertical-align: middle;
+}
+
+#loader{
+    height: -webkit-fill-available;
+    z-index: 2000;
+    position: absolute;
+    top:50%;
+    left:50%;
+    text-align: center;
+}
+
+#loader i{
+    position: absolute;
+    left: 1em;
+    top: 1em;
+    color: #ffffff7d;
+}
+
+.loader {
+    border: 1em solid #f3f3f3;
+    border-radius: 100%;
+    border-top: 1em solid #24aeaf;
+    width: 3em;
+    height: 3em;
+    padding: 30px;
+    border-right: 1em solid transparent;
+    box-shadow: 0px 0px 0px 10px #249293d4, 0px 0px 15px 15px #000000b0;
+    background-color: #00000073;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 3s linear infinite;
+}
+
+#scroll-hint{
+  position: fixed;
+    width: fit-content;
+    top: 50%;
+  width: 35px;
+    border-radius: 0px 20px 20px 0px;
+    opacity: 0.25;
+    color:white;
+    background-color: black;
+    text-align: center;
+    padding: 8px;
+    z-index:1;
+}
+
+.scroll-help-text{
+
+}
+
+#scroll-hint:hover{
+  opacity:0.75;
+}
+#scroll-hint:hover:after{
+      content: "Scroll up or down to change slide";
+    position: absolute;
+    top: 0;
+    left: 37px;
+    width: 107px;
+    background-color: black;
+    height: calc(100%);
+    /* padding-left: 40px; */
+    border-radius: 10px 10px 10px 10px;
+    z-index: 0;
+}
+
+#collapsed_nav{
+    display:none;
+    margin: 5px;
+    background-color: #cececeb0;
+    padding: 10px;
+    border-radius: 100%;
+    width: fit-content;
+    color: whitesmoke;
+    position: fixed;
+    z-index: 1000;
+}
+
+.slides{
+    /*color:white;*/
+}
+
+.slide-title{
+    width:100%;
+    font-size:3em;
+    color:white;
+    font-variant:small-caps;
+    text-shadow: 0px 0px 5px #00BCD4;
+    background-color: #00000085;
+    border-radius:5px;
+    margin-top:5px;
+}
+
+.slide-content{
+}
+
+.slide-main-area{
+    /*text-align:center;*/
+    display: table-cell;
+    /*vertical-align: middle;*/
+    width: 100%;
+    height: -webkit-fill-available;
+
+}
+
+.main_padding_left{
+    /* see line 51 */
+    /*padding-left:36%; */
+}
+
+/* Toolbox Edit tabs */
+/*.tab-separator-vertical:before{*/
+/*    content: "<< floating content";*/
+/*    position: absolute;*/
+/*    font-size: small;*/
+/*    margin-left: -125px;*/
+/*    margin-top: -16px;*/
+/*    background-color: #f8f8f8;*/
+/*    border-radius: 10px;*/
+/*    padding-left: 5px;*/
+/*    padding-right: 5px;*/
+/*}*/
+/*.tab-separator-vertical:after{*/
+/*    content: "main content >>";*/
+/*    position: absolute;*/
+/*    font-size: small;*/
+/*    margin-left: 3px;*/
+/*    margin-top: -16px;*/
+/*    background-color: #f8f8f8;*/
+/*    border-radius: 5px;*/
+/*    padding-left: 5px;*/
+/*    padding-right: 5px;*/
+/*}*/
+.tab-separator-vertical{
+    background-color: #d1d1d1;
+    width:1px;
+}
+
+#myTab a.active{
+    background-color:#cddc3924;
+}
+
+/* fontawsome overrides */
+.fa-shoe-prints{
+    transform: rotate(-90deg)!important;
+}
+.fa-shoe-prints:after{
+    content:"";
+    position:absolute;
+}
+
+/* Pagination buttons */
+
+.pagination li {
+    display: block !important;
+    }
+
+#floating-pagination{
+    position: fixed;
+    bottom: 1%;
+    opacity: 0.25;
+    z-index: 1000;
+    left: 45%;
+    color:black;
+}
+#floating-pagination:hover{
+    opacity:0.75;
+}
+
+#slides-dropdown-menu{
+/*   left:130px; */
+      position: absolute;
+    left: 50%;
+    bottom: 55px;
+}
+
+#slides_list_pophover{
+/*     display:none;
+    position: absolute;
+    z-index: 1;
+    top:-35px;
+    left:4em;
+    padding:3px;
+    width: max-content; */
+    text-align:center;
+    /*width:95%;*/
+     padding:5px;
+}
+
+.inrows{
+  position:relative;
+  display:block;
+  width:100%;
+  /*margin-left:15%!important;*/
+  margin-right:auto;
+}
+
+.minimize_hide{
+    display:none;
+}
+
+/* CKEDITOR Overrides*/
+
+.cke_editable h1, h1 {
+    color:white;
+    text-shadow: 0 0 6px black;
+}
+
+.cke_contents{
+    background-color:black;
+}
+
+/* Leaflet Overrides */
+
+.leaflet-control-layers-overlays{
+    text-align: left!important;
+}
+
+/* ArcGis Map Extent */
+#arcgis_extent{
+  display:none;
+}
+
+#arcgis_extent_map{
+    display:none;
+    height:200px;
+    width:100%;
+}
+
+.arcgis_extent_show{
+  display:block!important;
+}
+
+
+/* SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+    width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #9E9E9E;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #607D8B
+    ;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Images transitions */
+.zoomin_images {
+  background-size: auto;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  -webkit-animation: zoomin 10s ease-in;
+  animation: zoomin 10s ease-in;
+  animation-iteration-count: 1;
+  transition: all .5s ease-in-out;
+  overflow: hidden!important;
+}
+
+.moveleft_images {
+  background-size: 125%!important;
+  background-attachment: fixed;
+  background-repeat: repeat;
+  -webkit-animation: moveleft 10s ease-in infinite;
+  animation: moveleft 10s ease-in infinite;
+  transition: all .5s ease-in-out;
+  overflow: hidden;
+}
+
+.moveright_images {
+  background-size: 125%!important;
+  background-attachment: fixed;
+  background-repeat: repeat;
+  -webkit-animation: moveright 10s ease-in infinite;
+  animation: moveright 10s ease-in infinite;
+  transition: all .5s ease-in-out;
+  overflow: hidden;
+}
+
+/* Zoom in Keyframes */
+@-webkit-keyframes zoomin {
+/*   0% { background-size: 100%;}
+  50% {background-size: 105%;}
+  100% {background-size: 100%;} */
+  0% {transform: scale(1);}
+  50% {transform: scale(1.05);}
+  100% {transform: scale(1);}
+}
+@keyframes zoomin {
+/*   0% {background-size: 100%;}
+  50% {background-size: 105%;}
+  100% {background-size: 100%;} */
+  0% {transform: scale(1);}
+  50% {transform: scale(1.05);}
+  100% {transform: scale(1);}
+} 
+ /*End of Zoom in Keyframes */
+/* MoveLeft Keyframes */
+@-webkit-keyframes moveleft {
+  0% { background-position-x: 0%;background-blend-mode:overlay;}
+  90% {background-position-x: 20%;background-color:black;background-blend-mode:overlay;}
+  95% {background-position-x: 0%;background-color:black;background-blend-mode:overlay;}
+  100% {background-position-x: 0%;background-blend-mode:overlay;}
+}
+@keyframes moveleft {
+  0% { background-position-x: 0%;background-blend-mode:overlay;}
+  90% {background-position-x: 20%;background-color:black;background-blend-mode:overlay;}
+  95% {background-position-x: 0%;background-color:black;background-blend-mode:overlay;}
+  100% {background-position-x: 0%;background-blend-mode:overlay;}
+} /*End of MoveLeft Keyframes */
+/* moveright Keyframes */
+@-webkit-keyframes moveright {
+  0% { background-position-x: 0%;background-blend-mode:overlay;}
+  90% {background-position-x: -20%;background-color:black;background-blend-mode:overlay;}
+  95% {background-position-x: 0%;background-color:black;background-blend-mode:overlay;}
+  100% {background-position-x: 0% ;background-blend-mode:overlay;}
+}
+@keyframes moveright {
+  0% { background-position-x: 0%;background-blend-mode:overlay;}
+  90% {background-position-x: -20%;background-color:black;background-blend-mode:overlay;}
+  95% {background-position-x: 0% ;background-color:black;background-blend-mode:overlay;}
+  100% {background-position-x: 0% ;background-blend-mode:overlay;}
+} /*End of moveright Keyframes */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}

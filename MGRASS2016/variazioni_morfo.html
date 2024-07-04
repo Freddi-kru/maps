@@ -1,0 +1,405 @@
+<html>
+  <head>
+    <title>Variazioni morfologiche</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!--
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>    
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="js/leaflet-hash.js"></script>
+    <script src="js/label.js"></script>
+    <script src="js/Autolinker.min.js"></script>
+    <script src="js/leaflet.timeline.min.js"></script>
+    <script src="js/leaflet-sidebar.js"></script>
+    <script src="js/styledLayerControl.js"></script>
+    <script src="js/L.Control.Locate.js"></script>
+    <script src="http://leaflet.github.io/Leaflet.draw/leaflet.draw.js"></script>
+	<script src="js/leaflet.measurecontrol.js"></script>
+
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/MarkerCluster.css" />
+    <link rel="stylesheet" href="css/MarkerCluster.Default.css" />
+    <link rel="stylesheet" type="text/css" href="css/own_style.css">
+    <link rel="stylesheet" href="css/label.css" />
+    <link href="css/leaflet.timeline.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/leaflet-sidebar.css" />
+    <link rel="stylesheet" href="css/styledLayerControl.css" />
+    <link rel="stylesheet" href="css/L.Control.Locate.css" />
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://leaflet.github.io/Leaflet.draw/leaflet.draw.css"/>
+    <link rel="stylesheet" href="css/leaflet.measurecontrol.css" />
+    <link rel="shortcut icon" href="pictures/favicon.ico" type="image/x-icon">
+       
+
+    <style>
+      body{
+        margin: 0;
+        padding: 0;
+      }
+      
+      html, body, #map {
+            height: 100%;
+            font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
+        }
+        
+      .lorem {
+            font-style: italic;
+            color: #AAA;
+      }
+      
+.custom .leaflet-popup-tip,
+.custom .leaflet-popup-content-wrapper {
+    background: #2c3e50;
+    color: #ffffff;
+}
+
+    
+<!--
+      #map{
+        position: fixed;
+        top: 0;
+        left: 0vw;
+        bottom: 0;
+        right: 0vw;
+        
+        width: 100vw;
+        height: 100vh;
+      }      
+-->
+      
+      .leaflet-bottom.leaflet-right{
+        width: 95%;
+      }
+      .leaflet-control-container .leaflet-timeline-controls{
+        box-sizing: border-box;
+        width: 90%;
+        margin: 0;
+        margin-bottom: 0px;
+      }
+        .imageborder { 
+              border: 1px solid #000; 
+              padding: 1px;
+         }
+
+
+    </style>
+  </head>
+  <body>
+     <div id="sidebar" class="sidebar collapsed">
+        <!-- Nav tabs -->
+        <ul class="sidebar-tabs" role="tablist">
+            <li><a href="#home" role="tab"><i class="fa fa-home fa-lg"></i></a></li>
+            <li><a href="#mappa" role="tab"><i class="fa fa-map-o"></i></a></li>
+            <li><a href="#misure" role="tab"><i class="fa fa-pie-chart"></i></a></li>
+<!--
+            <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+-->
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="sidebar-content active">
+            <div class="sidebar-pane" id="home">
+				
+                <h1 align="center">Variazioni morfologiche del Fiume Paglia</h1>
+                
+                <h2>Informazioni</h2>                
+                <p>Il rischio idraulico è oggetto di ampia attenzione da parte di media, tecnici e ricercatori. Meno noto è il rischio connesso alla dinamica dei sedimenti e ai processi di erosione - sedimentazione, cioè il <i>rischio da dinamica d'alveo</i>.</p>
+                <p>Per evidenziare le problematiche connesse con la dinamica fluviale, è stata realizzata questa mappa che mostra le modificazioni subite dal fiume Paglia negli ultimi 200 anni. Lo studio cambiamenti nel tempo di un corso d'acqua (analisi storica) è 
+                fondamentale per comprendere le tendenze evolutive del sistema fluviale e la reazione dello stesso agli impatti antropici.            
+                <br>Inoltre, è stata realizzata una seconda <a href="index.html">mappa</a> che riporta i caratteri morfologico-sedimentari e antropici del F. Paglia (tributario del F. Tevere).</p>
+                <p>Il Paglia si presta bene a questo scopo, perché manifesta importanti problemi di erosione e di approfondimento dell'alveo, dovuti soprattutto all'intensa attività estrattiva di inerti, perpetrata nei decenni passati, che ha determinato un forte deficit sedimentario nel sistema fluviale.
+                <p>Le webmaps sono state realizzate con software FOSS:
+                <ul> <li><a href="https://grass.osgeo.org/">GRASS</a> per la georeferenzazione dei documenti storici (mappe del Catasto Gregoriano – 1820; foto aree dei vo-<BR>li GAI – 1954 e AR08 – 1977 Regione Umbria);</li>
+                <li>il plugin GRASS di <a href="http://www.qgis.org/">Qgis</a> per la vettorializzazione degli elementi morfologici di interesse;</li>
+                <li>Qgis per la gestione e la stilizzazione dei dati;</li>
+                <li><a href="http://leafletjs.com/">Leaflet</a> per la realizzazione delle mappe.</li></ul></p>
+                
+                <h2>Credits</h2>
+                <p>La mappa è stata realizzata dal gruppo di Geologia Applicata del Dipartimento di Fisica e Geologia dell'Università di Perugia.</p>
+                <p>Per informazioni, chiarimenti o suggerimenti potete scrivere a andrea.fredduzzi<i class="fa fa-at"></i>unipg.it</p>
+                <p>Le icone del pannello laterale sono tratte da <a href="http://fontawesome.io"> "Font Awesome by Dave Gandy - http://fontawesome.io"</a></p>
+                <p>La mappa utilizza i seguenti plugins:</p>
+                <p><ul> <li><a href="https://github.com/gregjacobs/Autolinker.js">Autolinker.js</a></li>
+                <li><a href="https://github.com/domoritz/leaflet-locatecontrol">leaflet-locatecontrol</a></li>
+                <li><a href="https://github.com/makinacorpus/Leaflet.MeasureControl/">Leaflet.MeasureControl</a></li>
+                <li><a href="https://github.com/Turbo87/leaflet-sidebar">leaflet-sidebar</a></li>
+                <li><a href="https://github.com/davicustodio/Leaflet.StyledLayerControl">Leaflet.StyledLayerControl</a></li></ul></p>
+                
+                <HR>               
+                <p style="text-align:center;">Quest'opera è distribuita con Licenza <a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license">Creative Commons Attribuzione - Condividi allo stesso modo 4.0 Internazionale</a></p>
+                <p style="text-align:center;"><a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license"><img class=" aligncenter" style="border-width:0;" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" alt="Licenza Creative Commons" /></a></p>                
+<!--
+                <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+-->
+            </div>
+            <div class="sidebar-pane" id="mappa">
+		    
+		       <h2>Istruzioni</h2>
+		       <p>Tramite il pannello di controllo dei layers, sulla destra, è possibile scegliere tra 4 mappe di sfondo, basate su <a href="http://www.openstreetmap.org/">Openstreetmap</a>, tra cui una vista aerea riferibile all'anno 2011.
+		       Oppure è possibile utilizzare come sfondo le ortofotocarte degli anni 2008, 2000 e 1988 fornite dal <a href="http://www.pcn.minambiente.it/GN/">Geoportale Nazionale</a>.
+		       <p>Alle mappe di sfondo sono sovrapposti 6 layers vettoriali (interrogabili) che riportano la configurazione morfologica dell'alveo riferibile agli anni 1820, 1954, 1977, 1999, 2008, 2012. </p>
+		       <P>Utilizzando la barra orizzontale in basso, tramite il tasto "play", si può avviare una animazione che mostra i cambiamenti nel tempo.
+		       <br>Tramite i pulsanti "forward" e "backward", si può cambiare la configurazione morfologica del fiume nei diversi periodi, passo per passo. </P>
+		       <h2>Legenda</h2>
+				<img src="pictures/legenda_v.svg" width="215px"/>		       
+		    </div>
+		    
+            <div class="sidebar-pane" id="misure"><h2>Misurare le trasformazioni</h2>
+            <p>I cambiamenti che il corso d'acqua ha subito nel tempo sono dovuti ad un forte deficit sedimentario del sistema che ha innescato un intenso processo di erosione e approfondimento dell'alveo (vedi la sezione <a href="index.html#tour">"Il processo di approfondimento dell'alveo"</a> della mappa dei caratteri morfologico-sedimentari e antropici). </p>
+            <p>La misura di alcuni parametri morfologici consente di quantificare questo processo di trasformazione.</p>
+            <h3><u>Larghezza dell'alveo pieno</u></h3>
+            <p>Probabilmente il parametro più interessante è la larghezza media dell'alveo pieno (<i>bankfull width</i>), cioè la larghezza della porzione di alveo costituita dal canale (o dai canali) di magra e dai corpi sedimentari nudi e attivi (barre ghiaiose non vegetate).</p>
+            <p>Come si nota nel grafico sottostante, la larghezza dell'alveo si è ridotta drasticamente nel tempo. A partire dagli anni cinquanta il fenomeno ha subito una netta accelerazione: per un periodo di circa 130 anni (1821-1954) l'alveo ha subito un restringimento abbastanza modesto (da 202 a 155 m).
+            <br>Successivamente, in circa cinquant'anni, il valore medio della larghezza è passato dai 155 m del 1954 ai 97 m  del 1977, sino ai 46 m del 1999; in pratica, dagli anni '50 al 1999 il corso d'acqua si è ristretto di circa il 70%. </p>
+            <p>Negli ultimi anni la tendenza si è invertita e l'alveo ha in parte riguadagnato gli spazi originari: la larghezza media è passata dai 46 m del 1999 agli 80 m del 2012. L'allargamento è avvenuto ad opera di alcuni importanti eventi di piena che si sono succeduti tra il 1999 e il 2012.
+            <br>In particolare, i due più importanti si sono verificati nell'inverno 2010 e nel novembre 2012.</p>
+            <p align="center"><a href="grafici.html#chart1"><img src="pictures/grafici/largh.jpg" width="90%"/></a><br>
+            <h3><u>Indice di intrecciamento (BI) </u></h3>
+            <p>&Eacute; definito come il numero di canali attivi, separati da barre, misurato lungo una sezione trasversale. Il valore finale per il tratto considerato è stato ottenuto mediando le misure effettuate su più sezioni trasversali (in questo caso una misura ogni 10 m di lunghezza).</p>
+            <p>Per le mappe del Catasto Gregoriano (1820) l'indice non è stato calcolato, poiché si tratta di mappe catastali che riportano le sponde dell'alveo pieno, ma non i canali di magra e le barre.</p>
+            <p> Il grafico sottostante mostra come tra il 1954 e il 2008 l'indice sia diminuito in maniera costante, tanto che il fiume ha cambiato completamente la sua configurazione morfologica, passando dall'alveo marcatamente <i>intrecciato</i> del 1954 (BI=1.56) all'alveo monocanale a bassa sinuosità del 2008 (BI = 1.12).</p>
+            <p>La successiva fase di allargamento ha comportato anche un leggero aumento dell'indice (BI=1.22)</p>
+            <p align="center"><a href="grafici.html#chart2"><img src="pictures/grafici/intrec.jpg" width="90%"/></a><br>
+            <h3><u>Il processo di approfondimento dell'alveo e la modifica dello stato vegetativo delle barre </u></h3>
+            <p class="lorem">In preparazione ...</p>
+            
+            <HR>
+            <p>Un sito molto interessante per "toccare con mano" le trasformazioni subite dai fiumi, e più in generale, dal paesaggio dell'Umbria è <a href="http://siat.regione.umbria.it/paesaggineltempo/">Paesaggi nel tempo</a>. </p>
+            
+            </div>
+            <div class="sidebar-pane" id="settings"><h1>Settings</h1></div>
+        </div>
+    </div>
+
+    <div id="map" class="sidebar-map" ></div> 
+     
+    <script src="data/exp_Limitebacinoidrografico.js"></script>
+    <script>
+		function doStyle(feature) {
+			switch (feature.properties.descrizio) {
+				case 'barra attiva - nuda':
+					return {
+						weight: '1.3',
+						fillColor: '#fdf56f',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'barra attiva - vegetata':
+					return {
+						weight: '1.3',
+						fillColor: '#49e43e',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'barra sospesa - arborata':
+					return {
+						weight: '1.3',
+						fillColor: '#24721f',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+                case 'alveo pieno':
+					return {
+						weight: '1.3',
+						fillColor: '#8c8c8c',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'canale di magra':
+					return {
+						weight: '1.3',
+						fillColor: '#289dea',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+			}
+		}
+		
+      function getColorFor(str) { // java String#hashCode
+        var hash = 0;
+        for (var i = 0; i < str.length; i++) {
+          hash = str.charCodeAt(i) + ((hash << 5) - hash);
+        }
+        var red = (hash >> 24) & 0xff;
+        var grn = (hash >> 16) & 0xff;
+        var blu = (hash >>  8) & 0xff;
+        return 'rgb(' + red + ',' + grn + ',' + blu + ')';
+      } 
+      var additional_attrib = 'created by A. Fredduzzi and P. De Rosa<br>';
+      var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+      var osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+      var osm = L.tileLayer(osmUrl, {maxZoom: 18, attribution: additional_attrib + osmAttrib});
+      
+      var basemap_1 = L.tileLayer('http://a.tile.stamen.com/toner/{z}/{x}/{y}.png', { 
+			attribution: additional_attrib + 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data: &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+		});
+		
+	  var mapbox_streets = L.tileLayer('https://{s}.tiles.mapbox.com/v4/freddi.m2nc4a39/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZnJlZGRpIiwiYSI6InhWUFRCYk0ifQ.qmjZlLlDE-EnjmTwp9Rf0Q', {
+	      attribution: additional_attrib + 'Map tiles &copy; <a href="https://www.mapbox.com/about/maps/">MapBox</a> - Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});
+		
+	  var mapbox_satellite = L.tileLayer('https://{s}.tiles.mapbox.com/v4/freddi.m2nj71k6/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZnJlZGRpIiwiYSI6InhWUFRCYk0ifQ.qmjZlLlDE-EnjmTwp9Rf0Q', {
+	      attribution: additional_attrib + 'Map tiles &copy; <a href="https://www.mapbox.com/about/maps/">MapBox</a> - Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});		
+		
+      var orto_2000 = L.tileLayer.wms("http://wms.pcn.minambiente.it/ogc?map=/ms_ogc/WMS_v1.3/raster/ortofoto_colore_00.map", {
+          layers: 'OI.ORTOIMMAGINI.2000.',
+          format: 'image/png',
+          transparent: false,
+          version: '1.1.0',
+          attribution: additional_attrib + 'Aerial imagery: &copy; <a href="http://www.pcn.minambiente.it/GN/accesso-ai-servizi/servizi-di-visualizzazione-wms">GEOPORTALE NAZIONALE</a>'
+      });
+      
+      var orto_88 = L.tileLayer.wms("http://wms.pcn.minambiente.it/ogc?map=/ms_ogc/WMS_v1.3/raster/ortofoto_bn_88.map", {
+          layers: 'OI.ORTOIMMAGINI.1988.',
+          format: 'image/png',
+          transparent: false,
+          version: '1.1.0',
+          attribution:  additional_attrib + 'Aerial imagery: &copy; <a href="http://www.pcn.minambiente.it/GN/accesso-ai-servizi/servizi-di-visualizzazione-wms">GEOPORTALE NAZIONALE</a>'
+      });
+      
+      var orto_2008 = L.tileLayer.wms("http://wms.pcn.minambiente.it/ogc?map=/ms_ogc/WMS_v1.3/raster/ortofoto_colore_08.map", {
+          layers: 'OI.ORTOIMMAGINI.2008',
+          format: 'image/png',
+          transparent: false,
+          version: '1.1.0',
+          attribution: additional_attrib + 'Aerial imagery: &copy; <a href="http://www.pcn.minambiente.it/GN/accesso-ai-servizi/servizi-di-visualizzazione-wms">GEOPORTALE NAZIONALE</a>'
+      });      
+      
+      
+      var map = L.map('map', {layers: [mapbox_streets], center: new L.LatLng(42.74665,12.10176), zoom: 13 ,zoomControl: false});
+      
+      var layerOrder=new Array();
+      
+      function pop_alvei(feature, layer) {					
+			var popupContent = '<b>Data: </b>' + Autolinker.link(String(feature.properties['start'])) + '<BR><b>Unità morfolgica: </b>' + Autolinker.link(String(feature.properties['descrizio'])) ;
+			layer.bindPopup(popupContent, {'className':'custom'});
+		}      
+      
+        
+      function onLoadData(data){
+        var timeline = L.timeline(data, {
+          style:  doStyle,
+          onEachFeature:pop_alvei,
+          waitToUpdateMap: false
+        });
+        var timelineControl = L.timelineSliderControl({
+          formatOutput: function(date){
+            return new Date(date).toString();
+          },
+          position:"bottomright",
+          enableKeyboardControls: true,
+        });
+        timeline.addTo(map);
+        timelineControl.addTo(map);
+        timelineControl.addTimelines(timeline);
+      }
+      
+      function doStyleLimitebacinoidrografico(feature) {
+				return {
+					weight: 2.3,
+					color: '#00007f',
+					dashArray: '',
+					opacity: 1.0,
+					fillOpacity: 1.0
+				};
+		}
+		var exp_LimitebacinoidrograficoJSON = L.geoJson(exp_Limitebacinoidrografico,{
+			//onEachFeature: pop_Limitebacinoidrografico,
+			style: doStyleLimitebacinoidrografico
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		//feature_group.addLayer(exp_LimitebacinoidrograficoJSON);      
+		exp_LimitebacinoidrograficoJSON.addTo(map);
+        
+
+    /*var baseMaps = {
+
+		'OSM Standard': osm,
+		'Stamen Toner': basemap_1,
+		'Mapbox': mapbox_streets,
+		'Mapbox aerial (2011)':mapbox_satellite,
+		'Ortofoto 1988 (WMS)':orto_88,
+		'Ortofoto 2000 (WMS)':orto_2000,
+		'Ortofoto 2008 (WMS)':orto_2008};
+
+    L.control.layers(baseMaps,{},{collapsed:true}).addTo(map);*/
+	
+	
+	var baseMaps = [
+                    { 
+                        groupName : "Sfondi TMS",
+                        expanded : true,
+                        layers    : {
+                            "OSM standard"			: osm,
+                            'Stamen Toner'			: basemap_1,
+                            "Mapbox"				:  mapbox_streets,
+                            "Mapbox aerial (2011)"	:  mapbox_satellite
+                        }
+                        },{
+                        groupName : "Sfondi WMS",
+                        expanded  : true,
+                        layers    : { 
+                            'Ortofoto 1988 (WMS)':orto_88,
+		                    'Ortofoto 2000 (WMS)':orto_2000,
+		                    'Ortofoto 2008 (WMS)':orto_2008
+                        }
+                    }                       
+    ];
+    var overlays = [
+                     {
+                        groupName : "Variazioni morfologiche",
+                        expanded  : true,
+                        layers    : {                             
+                            "Limite del bacino idrografico"     : exp_LimitebacinoidrograficoJSON
+                                                      
+                        }    
+	                    }
+    ];	    
+    
+	                 
+	
+	var options = {
+        position			: "topright",
+        container_width     : "235px",
+        container_maxHeight : "370px", 
+        group_maxHeight     : "130px",
+        collapsed			: true,
+        exclusive           : false
+    };
+	
+	 var control = L.Control.styledLayerControl(baseMaps, overlays, options);
+     map.addControl(control);	    
+     new L.Control.Zoom({ position: 'topright' }).addTo(map);
+     var sidebar = L.control.sidebar('sidebar').addTo(map);
+     //L.control.locate({position: 'topright'}).addTo(map);
+     L.Control.measureControl({position: 'topright'}).addTo(map);
+     
+    </script>
+
+    <script src="data/alvei_TOT.js"></script>
+    
+    
+</script>
+  </body>
+</html>

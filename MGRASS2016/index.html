@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dinamica fluviale del Fiume Paglia</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+		<link rel="stylesheet" href="css/MarkerCluster.css" />
+		<link rel="stylesheet" href="css/MarkerCluster.Default.css" />
+		<link rel="stylesheet" type="text/css" href="css/own_style.css">
+		<link rel="stylesheet" href="css/label.css" />
+		<link rel="stylesheet" href="css/styledLayerControl.css" />
+		<link rel="stylesheet" href="css/L.Control.Locate.css" />
+		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/leaflet-sidebar.css" />
+		<link rel="stylesheet" href="http://leaflet.github.io/Leaflet.draw/leaflet.draw.css"/>
+		<link rel="stylesheet" href="css/leaflet.measurecontrol.css" />
+		<link rel="shortcut icon" href="pictures/favicon.ico" type="image/x-icon">
+		
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+		<script src="js/leaflet-hash.js"></script>
+		<script src="js/label.js"></script>
+		<script src="js/Autolinker.min.js"></script>
+		<script src="js/leaflet.markercluster.js"></script>
+		<script src="js/styledLayerControl.js"></script>
+		<script src="js/L.Control.Locate.js"></script>
+		<script src="js/leaflet-sidebar.js"></script>
+		<script src="http://leaflet.github.io/Leaflet.draw/leaflet.draw.js"></script>
+		<script src="js/leaflet.measurecontrol.js"></script>
+		
+		<style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        html, body, #map {
+            height: 100%;
+            font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif;
+        }
+
+        .lorem {
+            font-style: italic;
+            color: #AAA;
+        }
+        .custom .leaflet-popup-tip,
+        .custom .leaflet-popup-content-wrapper {
+             background: #2c3e50;
+             color: #ffffff;        
+        }
+        .custom .leaflet-popup-content-wrapper a {
+              color:rgba(255,255,255,0.5);
+        }
+        
+        .imageborder { 
+              border: 1px solid #000; 
+              padding: 1px;
+         }
+        .imageborderWhite { 
+              border: 1px solid #ffffff; 
+              
+         }         
+        
+        </style>		
+		
+	</head>
+	<body>
+		    <div id="sidebar" class="sidebar collapsed">
+        <!-- Nav tabs -->
+        <ul class="sidebar-tabs" role="tablist">
+            <li><a href="#home" role="tab"><i class="fa fa-home fa-lg"></i></a></li>
+            <li><a href="#settings" role="tab"><i class="fa fa-map-o"></i></a></li>
+            <li><a href="#tour" role="tab"><i class="fa fa-picture-o"></i></a></li>
+<!--          
+            <li><a href="#messages" role="tab"><i class="fa fa-envelope"></i></a></li>-->
+            
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="sidebar-content active">
+            <div class="sidebar-pane" id="home">
+                <h1 class="sidebar-header">Dinamica fluviale del F. Paglia<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>                             
+                               
+                <p>Il rischio idraulico è oggetto di ampia attenzione da parte di media, tecnici e ricercatori. Meno noto è il rischio connesso alla dinamica dei sedimenti e ai processi di erosione - sedimentazione, cioè il <i>rischio da dinamica d'alveo</i>.</p>
+                <p>Per evidenziare le problematiche connesse con la dinamica fluviale, è stata realizzata questa mappa che riporta i caratteri morfologico-sedimentari e antropici del F. Paglia (tributario del F. Tevere).
+                Inoltre, è stata realizzata una seconda <a href="variazioni_morfo.html">mappa</a> che mostra le modificazioni subite dal fiume stesso negli ultimi 200 anni.</p>
+                <p>Il Paglia si presta bene a questo scopo, perché manifesta importanti problemi di erosione e di approfondimento dell'alveo, dovuti soprattutto all'intensa attività estrattiva di inerti, perpetrata nei decenni passati, che ha determinato un forte deficit sedimentario nel sistema fluviale.
+                <p>Le webmaps sono state realizzate con software FOSS:
+                
+                <ul> <li><a href="https://grass.osgeo.org/">GRASS</a> per la georeferenzazione dei documenti storici (mappe del Catasto Gregoriano – 1820; foto aree dei vo-<BR>li GAI – 1954 e AR08 – 1977 Regione Umbria);</li>
+                <li>il plugin GRASS di <a href="http://www.qgis.org/">Qgis</a> per la vettorializzazione degli elementi morfologici di interesse;</li>
+                <li>Qgis per la gestione e la stilizzazione dei dati;</li>
+                <li><a href="http://leafletjs.com/">Leaflet</a> per la realizzazione delle mappe.</li></ul></p>
+                
+                <h2>Credits</h2>
+                <p>La mappa è stata realizzata dal gruppo di Geologia Applicata del Dipartimento di Fisica e Geologia dell'Università di Perugia.</p>
+                <p>Per informazioni, chiarimenti o suggerimenti potete scrivere a andrea.fredduzzi<i class="fa fa-at"></i>unipg.it</p>
+                <p>Le icone del pannello laterale sono tratte da <a href="http://fontawesome.io"> "Font Awesome by Dave Gandy - http://fontawesome.io"</a></p>
+                <p>La mappa utilizza i seguenti plugins:</p>
+                <p><ul> <li><a href="https://github.com/gregjacobs/Autolinker.js">Autolinker.js</a></li>
+                <li><a href="https://github.com/domoritz/leaflet-locatecontrol">leaflet-locatecontrol</a></li>
+                <li><a href="https://github.com/makinacorpus/Leaflet.MeasureControl/">Leaflet.MeasureControl</a></li>
+                <li><a href="https://github.com/Turbo87/leaflet-sidebar">leaflet-sidebar</a></li>
+                <li><a href="https://github.com/davicustodio/Leaflet.StyledLayerControl">Leaflet.StyledLayerControl</a></li></ul></p>
+                
+                <HR>               
+                <p style="text-align:center;">Quest'opera è distribuita con Licenza <a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license">Creative Commons Attribuzione - Condividi allo stesso modo 4.0 Internazionale</a></p>
+                <p style="text-align:center;"><a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license"><img class=" aligncenter" style="border-width:0;" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" alt="Licenza Creative Commons" /></a></p>
+<!--
+                <p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+-->
+
+            </div>                       
+            <div class="sidebar-pane" id="settings">
+				
+				<h2 class="sidebar-header">Istruzioni<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
+				<p>Tramite il pannello di controllo dei layers, sulla destra, è possibile scegliere tra 3 mappe di sfondo, basate su <a href="http://www.openstreetmap.org/">Openstreetmap</a>, tra cui una vista aerea.
+				<BR>Alle mappe di sfondo sono sovrapposti layers vettoriali interrogabili che mostrano, tramite <i>popup</i>, le informazioni associate.
+				<BR>I layers riportano:
+				<ul><li>i principali elementi morfologici della <b><u>pianura alluvionale</b></u> (limiti dei versanti, conoidi alluvionali, terrazzi fluviali, frane) e dell'<b><u>alveo</u></b> (corpi sedimentari, canale);</li>
+				<b><u><li>le opere</u></b> (trasversali e longitudinali), a cui sono associati un'immagine fotografica e il link a una scheda di censimento;</li>
+				<li><b><u>dati storici</u></b> (limite dell'alveo del 1954 e tracce di paleoalvei di età non definibile);</li>
+				<li><b><u>dati di rilevamento diretto</u></b> (fotografie interessanti ai fini della definizione dello status del sistema fluviale e i punti in cui è stato effettuato il campionamento granulometrico dei sedimenti dell'alveo).</li></ul></p>
+				
+				<h2>Legenda</h2>
+				<img src="pictures/legenda.svg" width="215px"/>
+			</div>
+            <div class="sidebar-pane" id="tour">
+				
+				<h2 class="sidebar-header">Tour geomorfologico del fiume<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h2>
+				<h3><u>La fonte dei sedimenti</u></h3>
+				<p>A monte della confluenza con il T. Fossatello, si nota la totale assenza di corpi sedimentari (Foto 1).</p>
+				 <p align="center"><img src="pictures/rilev/DSC00662.JPG" width="85%" class="imageborder" /><br>
+                 <a href="#" onclick="CentraFoto(42.776926452196953,11.934368196319662);">Foto 1 - Centra la mappa sulla foto</a>  </p>
+                 <p>La situazione cambia completamente a valle della confluenza, dove i corpi sedimentari sono molto numerosi e caratterizzati da materiali molto grossolani (Foto 2).</p>
+                 <p align="center"><img src="pictures/rilev/DSC00659.JPG" width="85%" class="imageborder" /><br>
+                 <a href="#" onclick="CentraFoto(42.77719240236829,11.9347352468109);">Foto 2 - Centra la mappa sulla foto</a>  </p>
+                 <p>Si è trovata, così, la <i>"fonte dei sedimenti"</i> di questo tratto terminale del F. Paglia, cioè il T. Fossatello. Il corso d'acqua incide depositi caotici ed eterogenei (accumuli di frana) che contengono anche blocchi di grandi dimensioni. Questi, trasportati a valle fino al Paglia, rappresentano
+                 una fonte di alimentazione molto importante per il collettore principale (Foto 3).</p>
+                 <p align="center"><img src="pictures/rilev/DSC00706.JPG" width="85%" class="imageborder" /><br>
+                 <a href="#" onclick="CentraFoto(42.786458614961198,11.926206350379401);">Foto 3 - Centra la mappa sulla foto</a>  </p>
+                 <p>In realtà tutto il tratto iniziale (Gola di Torre Alfina) costituisce, assieme al T. Fossatello, la fonte dei sedimenti: la valle è molto stretta e i versanti sono caratterizzati da frequenti movimenti franosi (uno è visibile al centro della foto n. 4). Le frane, impostate sugli stessi depositi caotici della foto n. 3, riforniscono l'alveo di sedimenti, anche molto grossolani.</p>
+                 <p align="center"><img src="pictures/rilev/DSC00679.JPG" width="85%" class="imageborder" /><br>
+                 <a href="#" onclick="CentraFoto(42.778359899838676,11.937361257876695);">Foto 4 - Centra la mappa sulla foto</a>  </p>
+                 <h3><u>Il processo di approfondimento dell'alveo</u></h3>
+                 <p>Il Paglia manifesta importanti problemi di erosione e di approfondimento dell'alveo, dovuti soprattutto all'intensa attività estrattiva di inerti, perpetrata nei decenni passati che ha determinato un forte deficit sedimentario nel sistema fluviale. </p>
+                 <p>Possiamo renderci conto del processo di approfondimento osservando, ovviamente, l'alveo e le sponde del fiume, ma anche le condizioni delle opere presenti nell'alveo.</p>
+                 <p>Ad esempio, osservando la spalla del vecchio ponte della strada provinciale SP 48, distrutto durante la piena del 1937, ci si accorge come le fondazioni dell'opera si trovino sopraelevate di circa 5 m rispetto al fondo attuale del canale. Ciò costituisce la prima chiara evidenza della rapidità del processo di approfondimento subito dall'alveo.</p> 
+                 <p align="center"><img src="pictures/rilev/ponteSP48b.jpg" width="85%" class="imageborder" /><br>
+                 <a href="#" onclick="CentraFoto(42.771908,12.034029);">Foto 6 - Centra la mappa sulla foto</a>  </p>
+                 <p>Osservando i ponti delle infrastrutture presenti sulla pianura alluvionale, tutti i piloni all'interno dell'alveo sono stati sottofondati. Ad esempio il pilone centrale del ponte della linea ferroviaria Roma - Firenze presenta più ordini di sottofondazione (Foto 8).</p>
+                 <p align="center"><img src="pictures/rilev/IMG_20120906_132136.jpg" width="85%" class="imageborder" /><br> 
+                 <a href="#" onclick="CentraFoto(42.773236,12.039012);"> Foto 7: Ponte della linea ferroviaria Roma - Firenze (Alta Velocità) - Centra la mappa sulla foto</a></p>
+                 <p align="center"><img src="pictures/rilev/IMG_20120906_141923.jpg" width="85%" class="imageborder" /><br> 
+                 <a href="#" onclick="CentraFoto(42.776312,12.046882);"> Foto 8: Ponte della linea ferroviaria Roma - Firenze (Linea normale) - Centra la mappa sulla foto</a></p>
+                 <p>Osservando l'alveo, si nota come il fiume ha eroso completamente i suoi sedimenti alluvionali e ha proseguito incidendo (in alcuni punti per oltre due metri) il substrato, costituito dalle argille marine plioceniche (Foto 15).</p>
+                 <p align="center"><img src="pictures/rilev/IMG_20120907_152457.jpg" width="85%" class="imageborder" /><br> 
+                 <a href="#" onclick="CentraFoto(42.748304,12.09829);"> Foto 15 - Centra la mappa sulla foto</a></p>
+                 <p>La foto n. 12 mostra come per ampi tratti il fiume scorra sul substrato argilloso pliocenico. Questo fa sì che il flusso idrico sia molto più veloce, perchè le argille hanno un coefficente di scabrezza molto più basso dei sedimenti fluviali. Inoltre si hanno degli effeti negativi sull'habitat e quindi sulla riproduzione della fauna ittica.</p>
+                 <p align="center"><img src="pictures/rilev/IMG_20120907_114917.jpg" width="85%" class="imageborder" /><br> 
+                 <a href="#" onclick="CentraFoto(42.758404,12.080747);"> Foto 12 - Centra la mappa sulla foto</a></p>
+                 <p>Avvicinandosi all'abitato di Orvieto Scalo, si nota come il substrato non affiora più sulla sponda, ma solo in corrispondenza del canale (Foto 18). Questo elemento indica che l'approfondimento dell'alveo è minore. La causa è la costruzione di una briglia, situata a valle di Ponte Adunata. <u>Tutto ciò aumenta le condizioni di rischio idraulico della zona di Orvieto Scalo (la più antropizzata)</u>: l'alveo a monte, per effetto dell'approfondimento, riesce a smaltire verso valle più efficacemente le portate liquide che, invece, in questa zona causano esondazioni sempre più frequenti.</p>
+                 <p align="center"><img src="pictures/rilev/IMG_20120908_084659.jpg" width="85%" class="imageborder" /><br> 
+                 <a href="#" onclick="CentraFoto(42.728116,12.126984);"> Foto 18 - Centra la mappa sulla foto</a></p>
+                 <h3><u>L'energia del fiume (<i>stream power</i>), la dinamica dei sedimenti e le opere in alveo</u></h3>
+                 <p class="lorem">In preparazione ...</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="map" class="sidebar-map"></div>
+		
+		
+		
+<!--
+Dati della mappa		
+-->
+		<script src="data/exp_progresivevalle.js"></script>
+		<script src="data/exp_Assevalle.js"></script>
+		<script src="data/exp_progressivealveo.js"></script>
+		<script src="data/exp_Assealveo2008.js"></script>
+		<script src="data/exp_alveo54linee.js"></script>
+		<script src="data/exp_paleoalveilinee.js"></script>
+		<script src="data/exp_Opianura.js"></script>
+		<script src="data/exp_pennelli.js"></script>
+		<script src="data/exp_Otrasversali.js"></script>
+		<script src="data/exp_difesesponda.js"></script>
+		<script src="data/exp_alveo2012join2.js"></script>
+		<script src="data/exp_alveo2008join2.js"></script>
+		<script src="data/exp_pianurajoin.js"></script>
+		<script src="data/exp_pianurajoin2.js"></script>
+		<script src="data/exp_granulTot.js"></script>
+		<script src="data/exp_foto.js"></script>
+		<script src="data/exp_Limitebacinoidrografico.js"></script>
+		<script>
+		var map = L.map('map', {
+			zoomControl:false, maxZoom:18, minZoom:8
+		}).setView([42.74500,12.07], 13);
+		var hash = new L.Hash(map);
+		var additional_attrib = 'created by A. Fredduzzi and P. De Rosa<br>';
+		var feature_group = new L.featureGroup([]);
+		var raster_group = new L.LayerGroup([]);
+		var basemap_0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { 
+			attribution: additional_attrib + '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+		});	
+		
+		var basemap_1 = L.tileLayer('http://a.tile.stamen.com/toner/{z}/{x}/{y}.png', { 
+			attribution: additional_attrib + 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data: &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+		});
+		var basemap_2 = L.tileLayer('http://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png', { 
+			attribution: additional_attrib + '&copy; <a href="http://www.opencyclemap.org">OpenCycleMap</a>, &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+		});
+		var mapbox_streets = L.tileLayer('https://{s}.tiles.mapbox.com/v4/freddi.m2nc4a39/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZnJlZGRpIiwiYSI6InhWUFRCYk0ifQ.qmjZlLlDE-EnjmTwp9Rf0Q', {
+	    attribution: additional_attrib + 'Map tiles &copy; <a href="https://www.mapbox.com/about/maps/">MapBox</a> - Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});
+		mapbox_streets.addTo(map);
+		var mapbox_satellite = L.tileLayer('https://{s}.tiles.mapbox.com/v4/freddi.m2nj71k6/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZnJlZGRpIiwiYSI6InhWUFRCYk0ifQ.qmjZlLlDE-EnjmTwp9Rf0Q', {
+	    attribution: additional_attrib + 'Map tiles &copy; <a href="https://www.mapbox.com/about/maps/">MapBox</a> - Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'});
+		
+		var layerOrder=new Array();
+		
+		function doStyleLimitebacinoidrografico(feature) {
+				return {
+					weight: 2.3,
+					color: '#00007f',
+					dashArray: '',
+					opacity: 1.0,
+					fillOpacity: 1.0
+				};
+		}
+		var exp_LimitebacinoidrograficoJSON = new L.geoJson(exp_Limitebacinoidrografico,{
+			//onEachFeature: pop_Limitebacinoidrografico,
+			style: doStyleLimitebacinoidrografico
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_LimitebacinoidrograficoJSON);
+		
+		function pop_pianurajoin(feature, layer) {					
+			var popupContent = '<h3>Pianura fluviale</h3><table><tr><th scope="row">Unità morfolgica</th><td>' + Autolinker.link(String(feature.properties['descrizio'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent,{'className':'custom'});
+		}
+
+		function doStylepianurajoin(feature) {
+			switch (feature.properties.descrizio) {
+				case 'conoide':
+					return {
+						weight: '1.3',
+						fillColor: '#969f5c',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'movimento franoso':
+					return {
+						weight: '1.3',
+						fillColor: '#a24dcc',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'pianura alluvionale':
+					return {
+						weight: '2.8',
+						fillColor: '#ffffff',
+						color: '#000000',
+						weight: '2',
+						dashArray: '',
+						opacity: '0.1',
+						fillOpacity: '0.1',
+					};
+					break;
+				case 'terrazzo fluviale':
+					return {
+						weight: '1.3',
+						fillColor: '#ca5a1d',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'versante':
+					return {
+						weight: '1.3',
+						fillColor: '#00aa7f',
+						color: '#000000',
+						weight: '1',
+						dashArray: '1,5',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+			}
+		}
+		var exp_pianurajoinJSON = new L.geoJson(exp_pianurajoin,{
+			onEachFeature: pop_pianurajoin,
+			style: doStylepianurajoin
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		//feature_group.addLayer(exp_pianurajoinJSON);
+		function pop_pianurajoin2(feature, layer) {					
+			var popupContent = '<h3>Pianura fluviale</h3><table><tr><th scope="row">Unità morfologica:</th><td>' + Autolinker.link(String(feature.properties['descrizio'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent,{'className':'custom'});
+		}
+
+		function doStylepianurajoin2(feature) {
+			switch (feature.properties.descrizio) {
+				case 'conoide':
+					return {
+						weight: '1.3',
+						fillColor: '#969f5c',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'movimento franoso':
+					return {
+						weight: '1.3',
+						fillColor: '#a24dcc',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.8',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'pianura alluvionale':
+					return {
+						weight: '1',
+						fillColor: '#ffffff',
+						color: '#000000',
+						weight: '1.5',
+						dashArray: '',
+						opacity: '1',
+						fillOpacity: '0.0',
+					};
+					break;
+				case 'terrazzo fluviale':
+					return {
+						weight: '1.3',
+						fillColor: '#ca5a1d',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.8',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'versante':
+					return {
+						weight: '1.3',
+						fillColor: '#00aa7f',
+						color: '#000000',
+						weight: '1',
+						dashArray: '5,2',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+			}
+		}
+		var exp_pianurajoin2JSON = new L.geoJson(exp_pianurajoin2,{
+			onEachFeature: pop_pianurajoin2,
+			style: doStylepianurajoin2
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_pianurajoin2JSON);
+		function pop_alveo2008join2(feature, layer) {					
+			var popupContent = '<h3>Alveo (2008)</h3><table><tr><th scope="row">Unità morfolgica:</th><td>' + Autolinker.link(String(feature.properties['descrizio'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent,{'className':'custom'});
+		}
+
+		function doStylealveo2008join2(feature) {
+			switch (feature.properties.descrizio) {
+				case 'barra attiva - nuda':
+					return {
+						weight: '1.3',
+						fillColor: '#fdf56f',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'barra attiva - vegetata':
+					return {
+						weight: '1.3',
+						fillColor: '#49e43e',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'barra sospesa - arborata':
+					return {
+						weight: '1.3',
+						fillColor: '#24721f',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'canale di magra':
+					return {
+						weight: '1.3',
+						fillColor: '#289dea',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+			}
+		}
+		var exp_alveo2008join2JSON = new L.geoJson(exp_alveo2008join2,{
+			onEachFeature: pop_alveo2008join2,
+			style: doStylealveo2008join2
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		//feature_group.addLayer(exp_alveo2008join2JSON);
+		function pop_alveo2012join2(feature, layer) {					
+			var popupContent = '<h3>Alveo (2012)</h3><table><tr><th scope="row">Unità morfolgica:</th><td>' + Autolinker.link(String(feature.properties['descrizio'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent,{'className':'custom'});
+		}
+
+		function doStylealveo2012join2(feature) {
+			switch (feature.properties.descrizio) {
+				case 'barra attiva - nuda':
+					return {
+						weight: '1.3',
+						fillColor: '#fdf56f',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'barra attiva - vegetata':
+					return {
+						weight: '1.3',
+						fillColor: '#49e43e',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'barra sospesa - arborata':
+					return {
+						weight: '1.3',
+						fillColor: '#24721f',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'canale di magra':
+					return {
+						weight: '1.3',
+						fillColor: '#289dea',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+			}
+		}
+		var exp_alveo2012join2JSON = new L.geoJson(exp_alveo2012join2,{
+			onEachFeature: pop_alveo2012join2,
+			style: doStylealveo2012join2
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_alveo2012join2JSON);
+		function pop_difesesponda(feature, layer) {					
+			var popupContent = '<h3>Difese di sponda</h3><table><tr><th scope="row">Id:</th><td>' + Autolinker.link(String(feature.properties['Id'])) + '</td></tr><tr><th scope="row">Tipologia:</th><td>' + Autolinker.link(String(feature.properties['Tipologia'])) +'</td></tr><tr><th scope="row">Link:</th><td><a href="pictures/' + Autolinker.link(String(feature.properties['Scheda'])) +'">Scheda di rilevamento</a>'+ '</td></tr></table>'+'<img src="pictures/'+Autolinker.link(String(feature.properties['Link']))+'" width="300px" class="imageborderWhite"/>';
+			layer.bindPopup(popupContent,{'className':'custom'});
+		}
+
+		function doStyledifesesponda(feature) {
+			switch (feature.properties.Tipologia) {
+				case 'muro':
+					return {
+						color: '#e31a1c',
+						weight: '3.0',
+						dashArray: '10,5',
+						opacity: '0.7',
+					};
+					break;
+				case 'scogliera':
+					return {
+						color: '#e31a1c',
+						weight: '3.3',
+						dashArray: '',
+						opacity: '0.7',
+					};
+					break;
+			}
+		}
+		var exp_difesespondaJSON = new L.geoJson(exp_difesesponda,{
+			onEachFeature: pop_difesesponda,
+			style: doStyledifesesponda
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		//feature_group.addLayer(exp_difesespondaJSON);
+		function pop_Otrasversali(feature, layer) {					
+			var popupContent = '<h3>Opere trasversali</h3><table><tr><th scope="row">Id:</th><td>' + Autolinker.link(String(feature.properties['Id'])) + '</td></tr><tr><th scope="row">Tipologia:</th><td>' + Autolinker.link(String(feature.properties['Tipologia'])) +'</td></tr><tr><th scope="row">Link:</th><td><a href="pictures/' + Autolinker.link(String(feature.properties['Scheda'])) +'">Scheda di rilevamento</a>'+ '</td></tr></table>'+'<img src="pictures/'+Autolinker.link(String(feature.properties['Link']))+'" width="300px" class="imageborderWhite"/>';
+			layer.bindPopup(popupContent,{'className':'custom'});
+		}
+
+		function doStyleOtrasversali(feature) {
+			switch (feature.properties.Tipologia) {
+				case 'briglia':
+					return {
+						color: '#ff0000',
+						weight: '3.5',
+						dashArray: '10,5',
+						opacity: '0.7',
+					};
+					break;
+				case 'guado':
+					return {
+						color: '#ff0000',
+						weight: '3.5',
+						dashArray: '1,5',
+						opacity: '0.7',
+					};
+					break;
+				case 'ponte':
+					return {
+						color: '#ff0000',
+						weight: '3.5',
+						dashArray: '',
+						opacity: '0.7',
+					};
+					break;
+			}
+		}
+		var exp_OtrasversaliJSON = new L.geoJson(exp_Otrasversali,{
+			onEachFeature: pop_Otrasversali,
+			style: doStyleOtrasversali
+		});
+		//exp_OtrasversaliJSON.bindLabel('feature.properties.Id', {noHide: false});
+		//bindLabel(feature.properties.Id, {noHide: false})
+		//add comment sign to hide this layer on the map in the initial view.
+		//feature_group.addLayer(exp_OtrasversaliJSON);
+		function pop_pennelli(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">ID</th><td>' + Autolinker.link(String(feature.properties['ID'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent,{'className':'custom'});
+		}
+
+		var exp_pennelliJSON = new L.geoJson(exp_pennelli,{
+			//onEachFeature: pop_pennelli,
+			pointToLayer: function (feature, latlng) {  
+				return L.circleMarker(latlng, {
+					radius: 4.0,
+					fillColor: '#ff0000',
+					color: '#000000',
+					weight: 1,
+					opacity: 1.0,
+					fillOpacity: 1.0
+				})
+			}
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		//feature_group.addLayer(exp_pennelliJSON);
+		function pop_Opianura(feature, layer) {					
+			var popupContent = '<h3>Rilevati</h3><table><tr><th scope="row">Tipologia:</th><td>' + Autolinker.link(String(feature.properties['Tipologia'])) + '</td></tr><tr><th scope="row">Note:</th><td>' + Autolinker.link(String(feature.properties['Note'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent,{'className':'custom'});
+		}
+
+		function doStyleOpianura(feature) {
+			switch (feature.properties.Tipologia) {
+				case 'argine':
+					return {
+						color: '#ee3f00',
+						weight: '3.5',
+						dashArray: '',
+						opacity: '0.7',
+					};
+					break;
+				case 'rilevato autostrada':
+					return {
+						color: '#ee3f00',
+						weight: '3.5',
+						dashArray: '10,5',
+						opacity: '0.7',
+					};
+					break;
+				case 'rilevato ferrovia':
+					return {
+						color: '#ee3f00',
+						weight: '3.5',
+						dashArray: '15,5,1,5',
+						opacity: '0.7',
+					};
+					break;
+				case 'rilevato strada provinciale':
+					return {
+						color: '#ee3f00',
+						weight: '3.5',
+						dashArray: '10,5',
+						opacity: '0.7',
+					};
+					break;
+			}
+		}
+		var exp_OpianuraJSON = new L.geoJson(exp_Opianura,{
+			onEachFeature: pop_Opianura,
+			style: doStyleOpianura
+		});    
+		
+		//.bindLabel(feature.properties.Km_text, {noHide: true})
+		//add comment sign to hide this layer on the map in the initial view.
+		//feature_group.addLayer(exp_OpianuraJSON);
+		function pop_paleoalveilinee(feature, layer) {					
+			var popupContent = '<h3>Traccia di paleoalveo</h3><table><tr><th scope="row">Data:</th><td>' + Autolinker.link(String(feature.properties['data'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent,{'className':'custom'});
+		}
+
+		function doStylepaleoalveilinee(feature) {
+				return {
+					weight: 3.5,
+					color: '#00007f',
+					dashArray: '10,5',
+					opacity: 1.0,
+					fillOpacity: 1.0
+				};
+		}
+		var exp_paleoalveilineeJSON = new L.geoJson(exp_paleoalveilinee,{
+			onEachFeature: pop_paleoalveilinee,
+			style: doStylepaleoalveilinee
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		//feature_group.addLayer(exp_paleoalveilineeJSON);
+		//function pop_alveo54linee(feature, layer) {					
+		//	var popupContent = '<h3>Limite storico alveo (1954)</h3><table><tr><th scope="row">Data</th><td>' + Autolinker.link(String(feature.properties['data'])) + '</td></tr></table>';
+		//	layer.bindPopup(popupContent);
+		//}
+
+		function doStylealveo54linee(feature) {
+				return {
+					weight: 2.8,
+					color: '#ff007f',
+					dashArray: '15,5,1,5',
+					opacity: 1.0,
+					fillOpacity: 1.0
+				};
+		}
+		var exp_alveo54lineeJSON = new L.geoJson(exp_alveo54linee,{
+			//onEachFeature: pop_alveo54linee,
+			style: doStylealveo54linee
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		//feature_group.addLayer(exp_alveo54lineeJSON);
+		
+		function pop_granulTot(feature, layer) {					
+		var popupContent = '<h3>Campioni granulometrici</h3><table><tr><th scope="row">Id:</th><td>' + Autolinker.link(String(feature.properties['Id'])) + '</td></tr><tr><th scope="row">Anno di prelievo:</th><td>' + Autolinker.link(String(feature.properties['Anno'])) + '</td></tr><tr><th scope="row">Componente alveo:</th><td>' + Autolinker.link(String(feature.properties['Componente'])) + '</td></tr><tr><th scope="row">N. di clasti:</th><td>' + Autolinker.link(String(feature.properties['Clasti'])) + '</td></tr><tr><th scope="row">D50 (mm):</th><td>' + Autolinker.link(String(feature.properties['D50'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent,{'className':'custom'});
+		}
+
+		var exp_granulTotJSON = new L.geoJson(exp_granulTot,{
+			onEachFeature: pop_granulTot,
+			pointToLayer: function (feature, latlng) {  
+				return L.marker(latlng, {icon: L.icon({
+				iconUrl: 'icons/blue-marker.svg',
+				iconSize:     [40, 40], // size of the icon change this to scale your icon (first coordinate is x, second y from the upper left corner of the icon)
+				iconAnchor:   [27, 20], // point of the icon which will correspond to marker's location (first coordinate is x, second y from the upper left corner of the icon)
+				popupAnchor:  [-7, -13] // point from which the popup should open relative to the iconAnchor (first coordinate is x, second y from the upper left corner of the icon)
+			 	})
+			 	}).bindLabel(feature.properties.Id, {noHide: false})
+			}
+		});
+		var cluster_groupgranulTotJSON= new L.MarkerClusterGroup({showCoverageOnHover: true});
+		cluster_groupgranulTotJSON.addLayer(exp_granulTotJSON);
+		//add comment sign to hide this layer on the map in the initial view.
+		//exp_granulTotJSON.addTo(map);
+		
+		function pop_foto(feature, layer) {					
+			var popupContent = '<h3>Documentazione fotografica</h3><table><tr><th scope="row">Id:</th><td>' + Autolinker.link(String(feature.properties['Id'])) + '</td></tr><tr><th scope="row">Azimut:</th><td>' + Autolinker.link(String(feature.properties['Azimut'])) +'° dal nord'+'</td></tr><tr><th scope="row">Data di scatto:</th><td>' + Autolinker.link(String(feature.properties['Data'])) + '</td></tr><tr><th scope="row">Link:</th><td><a href="pictures/rilev/' + Autolinker.link(String(feature.properties['Link'])) +'">Apri foto</a>'+'</td></tr></table>'+'<img src="pictures/rilev/'+Autolinker.link(String(feature.properties['Link']))+'" width="300px" class="imageborderWhite"/>'+'<b>Descrizione:</b> '+ Autolinker.link(String(feature.properties['Descrizio']));
+			layer.bindPopup(popupContent, {'className':'custom'});
+		}
+
+		var exp_fotoJSON = new L.geoJson(exp_foto,{
+			onEachFeature: pop_foto,
+			pointToLayer: function (feature, latlng) {
+				return L.marker(latlng, {
+					icon: L.icon({
+						iconUrl: feature.properties.icon_exp,
+						iconSize:     [24, 24], // size of the icon change this to scale your icon (first coordinate is x, second y from the upper left corner of the icon)
+						iconAnchor:   [12, 12], // point of the icon which will correspond to marker's location (first coordinate is x, second y from the upper left corner of the icon)
+						popupAnchor:  [0, -14] // point from which the popup should open relative to the iconAnchor (first coordinate is x, second y from the upper left corner of the icon)
+					})
+				}).bindLabel(feature.properties.Id, {noHide: true})
+			}}
+		);
+		var cluster_groupfotoJSON= new L.MarkerClusterGroup({showCoverageOnHover: false});
+		cluster_groupfotoJSON.addLayer(exp_fotoJSON);
+		//add comment sign to hide this layer on the map in the initial view.
+		//exp_fotoJSON.addTo(map);
+		
+		function pop_Assealveo2008(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">ASSE_AL_ID</th><td>' + Autolinker.link(String(feature.properties['ASSE_AL_ID'])) + '</td></tr><tr><th scope="row">note</th><td>' + Autolinker.link(String(feature.properties['note'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent,{'className':'custom'});
+		}
+
+		function doStyleAssealveo2008(feature) {
+				return {
+					weight: 2.8,
+					color: '#000000',
+					dashArray: '10,5',
+					opacity: 1.0,
+					fillOpacity: 1.0
+				};
+		}
+		var exp_Assealveo2008JSON = new L.geoJson(exp_Assealveo2008,{
+			//onEachFeature: pop_Assealveo2008,
+			style: doStyleAssealveo2008
+		});
+		layerOrder[layerOrder.length] = exp_Assealveo2008JSON;
+		for (index = 0; index < layerOrder.length; index++) {
+			feature_group.removeLayer(layerOrder[index]);feature_group.addLayer(layerOrder[index]);
+		}
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_Assealveo2008JSON);
+		function pop_progressivealveo(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">Km</th><td>' + Autolinker.link(String(feature.properties['Km'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent,{'className':'custom'});
+		}
+
+		var exp_progressivealveoJSON = new L.geoJson(exp_progressivealveo,{
+			onEachFeature: pop_progressivealveo,
+			pointToLayer: function (feature, latlng) {  
+				return L.circleMarker(latlng, {
+					radius: 3.0,
+					fillColor: '#000000',
+					color: '#000000',
+					weight: 1,
+					opacity: 1.0,
+					fillOpacity: 1.0
+				}).bindLabel(feature.properties.Km_text, {noHide: true})
+			}
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_progressivealveoJSON);
+		//function pop_Assevalle(feature, layer) {					
+		//	var popupContent = '<table><tr><th scope="row">ID</th><td>' + Autolinker.link(String(feature.properties['ID'])) + '</td></tr></table>';
+		//	layer.bindPopup(popupContent);
+		//}
+
+		function doStyleAssevalle(feature) {
+			switch (feature.properties.ID) {
+				case '1':
+					return {
+						color: '#000000',
+						weight: '2.3',
+						dashArray: '',
+						opacity: '1.0',
+					};
+					break;
+				case '2':
+					return {
+						color: '#000000',
+						weight: '1.0',
+						dashArray: '10,5',
+						opacity: '1.0',
+					};
+					break;
+			}
+		}
+		var exp_AssevalleJSON = new L.geoJson(exp_Assevalle,{
+			//onEachFeature: pop_Assevalle,
+			style: doStyleAssevalle
+		});
+		//add comment sign to hide this layer on the map in the initial view.		
+		//exp_AssevalleJSON.bindLabel('Even polylines can have labels.', { noHide: true });
+		feature_group.addLayer(exp_AssevalleJSON);
+		
+		function pop_progresivevalle(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">km</th><td>' + Autolinker.link(String(feature.properties['km'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent,{'className':'custom'});
+		}
+
+		var exp_progresivevalleJSON = new L.geoJson(exp_progresivevalle,{
+			onEachFeature: pop_progresivevalle,
+			pointToLayer: function (feature, latlng) {  
+				return L.circleMarker(latlng, {
+					radius: 3.0,
+					fillColor: '#000000',
+					color: '#000000',
+					weight: 1,
+					opacity: 1.0,
+					fillOpacity: 1.0
+				}).bindLabel(feature.properties.Km_text, {noHide: true})
+			}
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_progresivevalleJSON);
+
+    map.on('zoomend', function (e) {
+    zoom_based_layerchange();
+});
+
+function clean_map() {
+    map.eachLayer(function (layer) {
+        if (layer instanceof L.GeoJSON)
+
+
+        {
+            map.removeLayer(layer);
+
+        }
+        //console.log(layer);
+
+
+    });
+}
+
+//clean_map();
+
+function zoom_based_layerchange() {
+    //console.log(map.getZoom());
+
+var currentZoom = map.getZoom();
+    switch (currentZoom) {        
+        case 10:
+            clean_map();
+            exp_LimitebacinoidrograficoJSON.addTo(map);       
+            exp_Assealveo2008JSON.addTo(map); 
+            break;
+        case 11:
+            clean_map();
+            exp_LimitebacinoidrograficoJSON.addTo(map);        
+            exp_Assealveo2008JSON.addTo(map); 
+            break;
+        case 12:
+            clean_map();
+            exp_LimitebacinoidrograficoJSON.addTo(map);
+            exp_pianurajoin2JSON.addTo(map);                      
+            exp_Assealveo2008JSON.addTo(map); 
+            exp_AssevalleJSON.addTo(map);            
+            break; 
+        case 13:
+            clean_map();
+            exp_LimitebacinoidrograficoJSON.addTo(map);                       
+            exp_pianurajoin2JSON.addTo(map);
+            exp_Assealveo2008JSON.addTo(map); 
+            exp_AssevalleJSON.addTo(map);
+            exp_progressivealveoJSON.addTo(map);
+            exp_progresivevalleJSON.addTo(map);            
+            break;                
+        case 14:
+            clean_map();
+            exp_LimitebacinoidrograficoJSON.addTo(map);                       
+            exp_pianurajoin2JSON.addTo(map);
+            exp_alveo2012join2JSON.addTo(map);
+            exp_OpianuraJSON.addTo(map);
+            exp_paleoalveilineeJSON.addTo(map);
+            exp_alveo54lineeJSON.addTo(map);
+            exp_Assealveo2008JSON.addTo(map); 
+            exp_AssevalleJSON.addTo(map);
+            exp_progressivealveoJSON.addTo(map);
+            exp_progresivevalleJSON.addTo(map);            
+            break;
+        case 15:
+            clean_map();
+            exp_LimitebacinoidrograficoJSON.addTo(map);                       
+            exp_pianurajoin2JSON.addTo(map);
+            exp_alveo2012join2JSON.addTo(map);
+            exp_difesespondaJSON.addTo(map);
+            exp_OtrasversaliJSON.addTo(map);
+            exp_pennelliJSON.addTo(map);
+            exp_OpianuraJSON.addTo(map);
+            exp_paleoalveilineeJSON.addTo(map);
+            exp_alveo54lineeJSON.addTo(map);            
+            exp_Assealveo2008JSON.addTo(map); 
+            exp_AssevalleJSON.addTo(map);
+            exp_progressivealveoJSON.addTo(map);
+            exp_progresivevalleJSON.addTo(map);            
+            break;
+        case 16:
+            clean_map();
+            exp_LimitebacinoidrograficoJSON.addTo(map);                       
+            exp_pianurajoin2JSON.addTo(map);
+            exp_alveo2012join2JSON.addTo(map);
+            exp_difesespondaJSON.addTo(map);
+            exp_OtrasversaliJSON.addTo(map);
+            exp_pennelliJSON.addTo(map);
+            exp_OpianuraJSON.addTo(map);
+            exp_paleoalveilineeJSON.addTo(map);
+            exp_alveo54lineeJSON.addTo(map);
+            exp_granulTotJSON.addTo(map);
+            exp_fotoJSON.addTo(map);
+            exp_Assealveo2008JSON.addTo(map); 
+            exp_AssevalleJSON.addTo(map);
+            exp_progressivealveoJSON.addTo(map);
+            exp_progresivevalleJSON.addTo(map);            
+            break;
+        case 17:
+            clean_map();
+            exp_LimitebacinoidrograficoJSON.addTo(map);                       
+            exp_pianurajoin2JSON.addTo(map);
+            exp_alveo2012join2JSON.addTo(map);
+            exp_difesespondaJSON.addTo(map);
+            exp_OtrasversaliJSON.addTo(map);
+            exp_pennelliJSON.addTo(map);
+            exp_OpianuraJSON.addTo(map);
+            exp_paleoalveilineeJSON.addTo(map);
+            exp_alveo54lineeJSON.addTo(map);
+            exp_granulTotJSON.addTo(map);
+            exp_fotoJSON.addTo(map);
+            exp_Assealveo2008JSON.addTo(map); 
+            exp_AssevalleJSON.addTo(map);
+            exp_progressivealveoJSON.addTo(map);
+            exp_progresivevalleJSON.addTo(map);            
+            break;                                           
+         case 18:
+            clean_map();
+            exp_LimitebacinoidrograficoJSON.addTo(map);                       
+            exp_pianurajoin2JSON.addTo(map);
+            exp_alveo2012join2JSON.addTo(map);
+            exp_difesespondaJSON.addTo(map);
+            exp_OtrasversaliJSON.addTo(map);
+            exp_pennelliJSON.addTo(map);
+            exp_OpianuraJSON.addTo(map);
+            exp_paleoalveilineeJSON.addTo(map);
+            exp_alveo54lineeJSON.addTo(map);
+            exp_granulTotJSON.addTo(map);
+            exp_fotoJSON.addTo(map);
+            exp_Assealveo2008JSON.addTo(map); 
+            exp_AssevalleJSON.addTo(map);
+            exp_progressivealveoJSON.addTo(map);
+            exp_progresivevalleJSON.addTo(map);            
+            break;           
+        default:
+            // do nothing
+            break;
+    }
+}
+
+
+
+
+		feature_group.addTo(map);
+		var title = new L.Control();
+		title.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+			this.update();
+			return this._div;
+		};
+		title.update = function () {
+			this._div.innerHTML = '<h1>Caratteri morfologico-sedimentari e antropici del F. Paglia</h1>'
+		};
+		//title.addTo(map);
+
+	
+	var baseMaps = [
+                    { 
+                        groupName : "Sfondi TMS",
+                        expanded : true,
+                        layers    : {
+                            "Mapbox"			:  mapbox_streets,
+                            "OSM standard"		:  basemap_0,
+                            "Satellite (Mapbox)":  mapbox_satellite
+                        }
+                    }                       
+    ];  
+	
+	var overlays = [
+                     {
+                        groupName : "Morfologia",
+                        expanded  : false,
+                        layers    : { 
+                            "Limite del bacino idrografico" : exp_LimitebacinoidrograficoJSON,
+                            "Pianura fluviale" : exp_pianurajoin2JSON,
+                            "Alveo (2012)"     : exp_alveo2012join2JSON
+                            //"Alveo (2008)"     : exp_alveo2008join2JSON                            
+                        }    
+                        }, {
+                        groupName : "Opere",
+                        expanded  : false,
+                        layers    : { 
+                            "Alveo - difese di sponda"		: exp_difesespondaJSON,
+                            "Alveo - opere trasversali"		: exp_OtrasversaliJSON,
+                            "Alveo - pennelli"				: exp_pennelliJSON,
+                            "Pianura fluviale - rilevati"	: exp_OpianuraJSON
+                        }
+                        }, {
+                        groupName : "Dati storici",
+                        expanded  : false,
+                        layers    : { 
+                            "Traccia di paleoalveo"			: exp_paleoalveilineeJSON,
+                            "Limite storico alveo (1954)"	: exp_alveo54lineeJSON
+                        }
+                        }, {
+                        groupName : "Dati di campo",
+                        expanded  : false,
+                        layers    : { 
+                            "Campioni granulometrici <img src='icons/blue-marker.svg'width='25px'/>": exp_granulTotJSON,
+                            "Foto &nbsp<img src='icons/photo.svg'width='15px'/>": exp_fotoJSON                           
+                        }
+                        }, {
+                        groupName : "Sistemi di riferimento",
+                        expanded  : false,
+                        layers    : { 
+                            "Asse dell'alveo (2008)"		: exp_Assealveo2008JSON,
+                            "Progressive asse dell'alveo (km)"	: exp_progressivealveoJSON,
+                            "Asse della valle"				: exp_AssevalleJSON,
+                            "Progressive asse della valle (km)"	: exp_progresivevalleJSON
+                        }                                                    							   
+                     }                          
+    ];
+	var options = {
+        position			: "topright",
+        container_width     : "235px",
+        container_maxHeight : "370px", 
+        group_maxHeight     : "130px",
+        collapsed			: true,
+        exclusive           : false
+    };
+	
+	var control = L.Control.styledLayerControl(baseMaps, overlays, options);
+    map.addControl(control);
+	
+	    new L.Control.Zoom({ position: 'topright' }).addTo(map);
+		L.control.locate({position: 'topright'}).addTo(map);
+		L.control.scale({options: {position: 'bottomright',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map);
+		var sidebar = L.control.sidebar('sidebar').addTo(map);
+		L.Control.measureControl({position: 'topright'}).addTo(map);
+		
+        function CentraFoto(lat,lon) {
+            map.setView(new L.LatLng(lat,lon), 18);
+            clean_map();
+            map.removeLayer(mapbox_streets);
+            mapbox_satellite.addTo(map);                       
+            exp_granulTotJSON.addTo(map);
+            exp_fotoJSON.addTo(map);
+		}
+        
+	</script>
+</body>
+</html>

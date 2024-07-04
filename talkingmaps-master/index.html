@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>TalkingMaps</title>
+        <!-- Main CSS -->
+        <link rel="stylesheet" href="./css/main.css">
+
+        <link rel="icon" href="./img/tm_favicon.png">
+
+        <!-- jQuery library -->
+        <script src="./libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="./libs/ui/1.12.1/jquery-ui.js"></script>
+
+        <!-- Main JS -->
+        <script src="./libs/stringify/stringify.js"></script>
+        <script src="./js/main.js"></script>
+<!--         <script src="./js/lib/class_map.js" type="text/javascript"></script>
+ -->
+        <!-- Google Fonts -->
+        <link href="./libs/fonts.googleapis/fonts.googleapis.css?family=Ubuntu" rel="stylesheet">
+
+        <!-- Leaflet -->
+        <link rel="stylesheet" href="./libs/leaflet@1.3.1/dist/leaflet.css" integrity="" crossorigin=""/>
+        
+      <script src="./libs/leaflet@1.3.1/dist/leaflet.js"
+          integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
+          crossorigin=""></script>
+
+        <script src="./templates/map_js/proj4.js" type="text/javascript"></script>
+        <script src="./templates/map_js/proj4leaflet.js" type="text/javascript"></script>
+
+        <script src="./templates/map_js/leaflet.ajax.min.js" type="text/javascript"></script>
+        <script src="./templates/map_js/L.TileLayer.BetterWMS.js" type="text/javascript"></script>
+
+        <script src="./js/lib/class_map.js" type="text/javascript"></script>
+
+
+        <!-- Cookies JS -->
+        <script src="./libs/js-cookie@2/src/js.cookie.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="./libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+        <script src="./libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+        <script>
+        window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+          "palette": {
+            "popup": {
+              "background": "#1d8a8a"
+            },
+            "button": {
+              "background": "#62ffaa"
+            }
+          },
+          "theme": "edgeless",
+          "position": "bottom-right"
+        })});
+        </script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-126314405-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-126314405-1');
+</script>
+
+
+    </head>
+    <body>
+
+    <div id="override_style"></div>
+
+    <div id="empty_loading_background" class="">
+    </div>
+
+    <!-- navbar editing tools -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <img src="./imgs/logo.png"/ class="logo" id="nav-logo">
+        <a class="navbar-brand" href="www.talkingmaps.eu" target="_blank">
+        <span class="navbar-brand mb-0 h1">- TalkingMaps -</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse collapsed" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <button id="collapse_nav" type="button" class="btn btn-sm btn-info" data-toggle="tooltip" title="Collapse"><i class="fas fa-clone"></i></button>
+              </li>
+              <li class="nav-item active">
+                <button id="preview" type="button" class="btn btn-sm btn-info" data-toggle="tooltip" title="See your TalkingStory, you need to store data before to DB or cookies!">Preview</button>
+              </li>
+              <li class="nav-item">
+                <button id="load_db" type="button" class="btn btn-sm btn-dark" data-toggle="modal" data-target="#load-json-modal-sm">Load</button>
+              </li>
+              <li class="nav-item">
+                <button id="save_db" type="button" class="btn btn-sm btn-dark" data-toggle="tooltip" title="Export Sqlite DB">Export</button>
+              </li>
+              <li class="nav-item">
+                <div class="btn btn-sm btn-warning" data-toggle="tooltip" title="Delete This TalkingStory" id="delete_this_talkingstory"><i class="fas fa-trash"></i></div></a>
+              </li>
+              <li class="nav-item">
+                <button class="btn btn-sm btn-danger" data-toggle="tooltip" title="Clean All Local Storage, this will delete all your TalkingMaps" id="delete_all_local_storage" onclick="remove_all_storage();"><i class="fas fa-ban"></i></button></a>
+              </li>
+              <li class="nav-item">
+                <a href="http://talkingmaps-documentation.rtfd.io" target="_blank"><div class="btn btn-sm btn-light" data-toggle="tooltip" title="Documentation" ><i class="far fa-question-circle"> </i></div></a>
+              </li>
+
+            </ul>
+    </nav>
+
+    <!-- Collapsed Navbar Button for toolbar -->
+    <div id="collapsed_nav">
+        <button type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" title="Expand"><i class="fas fa-clone"></i></button>
+    </div>
+
+<!-- Change the loader logo -->
+    <div id="loader">
+        <div class="loader"></div>
+        <img class="" src="./imgs/logo_loader.png">
+    </div>
+
+    <div id="main_slides_container" class="maincontent">
+      <div id="slide_main-001" class="slide-main-area main_padding_left tooltipoff vertical-middle" status="active" data-toggle="tooltip" title="Main Slide Content." fullscreen="adapt">
+      </div>
+    </div>
+
+    <div id="floatingcontent" class="floatingcontent expanded_floating">
+
+        <div class="container story_slide_floating">
+            <div class="row">
+                <div id="floating-slides-title"  class="editablediv tooltipoff" data-toggle="tooltip" data-placement="right" title="Logo/Title Area visible in all slides.">
+
+                </div>
+          </div>
+          <div class="row slide-content">
+            <div id="floating_slides_container" class="col-sm-12">
+                <!-- Button trigger modal -->
+                <div class="story_toolbox">
+                  <button id="button_edit_content" data-toggle="modal" type="button" class="btn btn-sm editStory" data-target="#edit_content">
+                    <div data-toggle="tooltip" title="Edit this slide content"><i class="far fa-edit"></i></div>
+                  </button>
+                  <button id="button_add_slide" data-toggle="tooltip" title="AddSlide" type="button" class="btn btn-sm editStory">
+                    <i class="fas fa-plus-square"></i>
+                  </button>
+                  <button id="button_manage_slides" data-toggle="modal" type="button" class="btn btn-sm editStory" data-target="#manage_slides">
+                    <div data-toggle="tooltip" title="Manage Slides"><i class="fas fa-list-ul"></i></div>
+                  </button>
+                  <button id="button_save_changes" type="button" class="btn btn-sm editStory">
+                    <div data-toggle="tooltip" title="Save Changes"><i class="fas fa-save"></i></div>
+                  </button>
+                </div>
+                <div id="slide-001" class="slides editablediv tooltipoff editablediv" status="active" data-toggle="tooltip" title="Floating Text Editable Area">
+                </div>
+            </div>
+          </div>
+
+        </div>
+    </div>
+
+       <div id="scroll-hint" tabindex="-1">
+         <div class="scroll-help-text" data-toggle="" title="Previous Slide">
+           <a class="sm-page-link enabled" tabdelta="-1"><i class="fas fa-arrow-circle-up"></i></a>
+         </div>
+  			 <div id="min-vertical-button" class="scroll-help-text" data-toggle="" title="Minimize floating">
+           <i class="fas fa-arrows-alt-h"></i>
+         </div>
+         <div class="scroll-help-text" data-toggle="" title="Next Slide">
+           <a class="sm-page-link enabled" tabdelta="1"><i class="fas fa-arrow-circle-down"></i></a>
+         </div>
+			 </div>
+
+    <nav id="floating-pagination" aria-label="Page navigation example">
+            <ul id="pagination_story" class="pagination justify-content-center">
+              <li class="page-item ">
+                <a class="page-link enabled" tabdelta="-9999" data-toggle="tooltip" title="First Slide"><i class="fas fa-fast-backward"></i></a>
+              </li>
+              <li class="page-item ">
+                <a class="page-link enabled" tabdelta="-1" data-toggle="tooltip" title="Previous Slide"><i class="fas fa-step-backward"></i></a>
+              </li>
+              <li class="page-item">
+                  <button type="button" id="slides-dropdown-button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                      <a class="this_page" tabdelta="0" tabindex="1" data-toggle="" title=""><i class="fas fa-shoe-prints"></i><span id="counter-pages"></span></a>
+                    </button>
+                  <div id="slides-dropdown-menu" class="btn-group dropup">
+                    <div id="slides_list_pophover" class="dropdown-menu">
+                      <!-- Dropdown menu links -->
+
+                    </div>
+                  </div>
+
+              </li>
+              <li class="page-item ">
+                <a class="page-link enabled" tabdelta="+1"data-toggle="tooltip" title="Next Slide"><i class="fas fa-step-forward"></i></a>
+              </li>
+              <li class="page-item " id="minimize_floating">
+                <a class="page-link" data-toggle="tooltip" title="Hide/Display">
+                  <i class="fas fa-window-minimize"></i>
+                  <i class="fas fa-window-maximize minimize_hide"></i>
+                </a>
+              </li>
+            </ul>
+        </nav>
+    <!-- Load JSON modal -->
+    <div class="modal fade" id="load-json-modal-sm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Load JSON TalkingMap</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Load <input type="file" id="dbfile">
+            <div id="tm_ids_list">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Editor -->
+    <div class="modal fade" id="edit_content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit Content</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+              <li class="nav-item">
+                <a class="nav-link active" id="tm-options-tab" data-toggle="tab" href="#edit_main_options" role="tab" aria-controls="profile" aria-selected="false"><i class="fas fa-map-signs"></i> Options</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" id="c-map-tab" data-toggle="tab" href="#edit_content_map" role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-globe-africa"> </i> Main Map</a>
+              </li>
+
+
+              <li class="nav-item">
+                <a class="nav-link" id="c-iframe-tab" data-toggle="tab" href="#edit_content_iframe" role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-sign-in-alt"></i> iFrame</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" id="c-image-tab" data-toggle="tab" href="#edit_content_image" role="tab" aria-controls="contact" aria-selected="false"><i class="fas fa-camera-retro"></i> Image</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="edit_main_options" role="tabpanel" aria-labelledby="text-tab">
+                <div id="ts_options">
+                  <br />
+                      <!-- slide options tab-->
+                  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" id="pills-slide-opt-tab" data-toggle="pill" href="#pills-slide-opt" role="tab" aria-controls="pills-slide-opt" aria-selected="true">Slide Options</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="pills-general-tab" data-toggle="pill" href="#pills-general" role="tab" aria-controls="pills-general" aria-selected="false">General Settings</a>
+                    </li>
+                  </ul>
+
+                  <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-slide-opt" role="tabpanel" aria-labelledby="pills-slide-opt-tab">
+
+                  <div><p>Options only for this slide </p> </div>
+                  <hr></hr>
+                    <form class="form">
+                      <div class="form-group row">
+                        <i class="fas fa-2x fa-heading col-sm-1"></i>
+                        <label for="example-number-input" class="col-sm-3 col-form-label">Slide Title: </label>
+                         <input id="options_floating_title" class="form-control col-sm-4" type="text">
+                      </div>
+                      <div class="form-group row">
+                        <i class="fas fa-2x fa-clipboard col-sm-1"></i>
+                         <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="options_title_on" checked="checked">
+                          <label>Logo/Title on this slide</label>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <i class="fas fa-2x fa-book-open col-sm-1"></i>
+                         <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="options_floating_open" checked="checked">
+                          <label>Floating Open</label>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                         <i class="fas fa-2x fa-palette col-sm-1"> </i>
+                         <div id="options_background_color_main" class="btn btn-outline-secondary">Background-color Main Content</div>&nbsp;</div>
+                       </div>
+                       <!--  End of firs tab  -->
+
+                      <div class="tab-pane fade" id="pills-general" role="tabpanel" aria-labelledby="pills-general-tab">
+                      <div><p> General Options, valid for all slides</p> </div>
+                      <hr></hr>
+                      <div class="form-group row">
+                         <i class="fas fa-2x fa-palette col-sm-1"> </i>
+                         <div id="options_background_color_floating" class="btn btn-outline-secondary">Background-color Floating Area</div>&nbsp;
+                         <label id="options_text_color_floating" class="btn btn-outline-secondary btn-sm"> Text Color</label>&nbsp;
+                         <label id="options_box_shadow_floating" class="btn btn-outline-secondary btn-sm"> Box-Shadow</label>
+                      </div>
+                      <hr></hr>
+                      <div class="form-group row">
+                         <i class="fas fa-arrows-alt-v col-sm-1"></i>
+                         <label for="example-number-input" class="col-sm-3 col-form-label">Floating Height: </label>
+                         <input id="options_floating_height" class="form-control col-sm-2" type="number" value="98">
+                         <label for="example-number-input" class="col-sm-1 col-form-label">%</label>
+                      </div>
+                      <hr></hr>
+                      <div class="form-group row">
+                         <i class="fas fa-arrows-alt-h col-sm-1"></i>
+                         <label for="example-number-input" class="col-sm-3 col-form-label">Floating Width: </label>
+                         <input id="options_floating_width" class="form-control col-sm-2" type="number" value="35">
+                         <label for="example-number-input" class="col-sm-1 col-form-label">%</label>
+                      </div>
+                      <hr></hr>
+                      <div class="form-group row">
+                         <i class="fas fa-arrows-alt-v col-sm-1"></i>
+                          <label class="col-sm-6 col-form-label">Main Slide Area [vertical-align: middle]</label>
+                          <input type="checkbox" class="form-control col-sm-1" id="input_content_text_middle" checked>
+                      </div>
+
+                    </form>
+                </div>
+              </div>
+
+              </div></div>
+
+              <div class="tab-pane fade" id="edit_content_iframe" role="tabpanel" aria-labelledby="map-tab">
+                  <form >
+                      <div class="form-group">
+                        <label><i class="fas fa-link"> Generic iFrame Url: </i></label>
+                        <div class="input-group mb-3">
+                          <input class="form-control" type="text" value="" id="input_content_iframe" data-toggle="tooltip" title="eg. https://en.budspencerofficial.com/index.php">
+                          <div class="input-group-append">
+                            <span class="input-group-text delete-input" id="basic-addon2"><i class="fas fa-2x fa-eraser"></i></span>
+                          </div>
+                        </div>
+                      </div>Or
+                      <div class="form-group">
+                        <label><i class="fas fa-link"> QGIS iFrame index Url (Use QGIS2Web Plugin): </i></label>
+                         <div class="input-group mb-3">
+                          <input class="form-control" type="text" value="" id="input_content_iframe_qgis" data-toggle="tooltip" title="eg. ./iframe/example/index.html">
+                          <div class="input-group-append">
+                            <span class="input-group-text delete-input" id="basic-addon2"><i class="fas fa-2x fa-eraser"></i></span>
+                          </div>
+                        </div>
+                      </div>Or
+                      <div class="form-group">
+                        <label><i class="fas fa-external-link-square-alt"> ArcGIS iFrame export (Embed in Website): </i></label>
+                          <div class="input-group mb-3">
+                          <input class="form-control" type="text" value="" id="input_content_iframe_arcgis" data-toggle="tooltip" title="<style> ... <iframe src='...'></iframe>">
+                          <div class="input-group-append">
+                            <span class="input-group-text delete-input" id="basic-addon2"><i class="fas fa-2x fa-eraser"></i></span>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-2">
+                            <div class="btn btn-light btn-sm" onclick="arcgis_map_extent();">Extent</div>
+                          </div>
+                          <div class="col-sm-7">
+                            <div id="arcgis_extent_map" class="container-fluid"></div>
+                          </div>
+                          <div class="col-sm-3">
+                            <div id="arcgis_extent" class="row"></div>
+                          </div>
+                        </div>
+                      </div>
+                    <hr></hr>
+                      <div class="form-group">
+                        <div class="form-check">
+                          <input type="checkbox" class="form-check-input" id="input_content_iframe_fullscreen">
+                          <label><i class="far fa-square"> FullScreen</i></label>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label><i class="fab fa-css3">Frame CSS: </i></label>
+                        <textarea class="form-control" rows="5" id="input_content_iframe_css">height:100%;width:100%;display:block;border:none;</textarea>
+                        <span>See <a href="https://www.w3schools.com/html/html_iframe.asp" target="_blank">CSS</a> properties for iframe</span>
+                      </div>
+                  </form>
+                  <button id="apply_iframe" type="button" class="btn btn-primary">Apply Changes</button>
+                  <div id='remove_iframe' class="btn btn-warning">Remove iFrame</div>
+              </div>
+              <div class="tab-pane fade show" id="edit_content_text" role="tabpanel" aria-labelledby="text-tab">
+                <div id="tc_editor">
+                    <form class="form">
+                      <div class="form-group row">
+                         <i class="fas fa-arrows-alt-v col-sm-1"></i>
+                          <label class="col-sm-3 col-form-label">Vertical Align Text Area to Middle</label>
+                          <input type="checkbox" class="form-control col-sm-1" id="input_content_text_middle" checked>
+                      </div>
+                    </form>
+                    <textarea name="slide_m_content" id="tc_main_editor" contenteditable="false" style="display:none"></textarea>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="edit_content_image" role="tabpanel" aria-labelledby="image-tab">
+                  <form >
+                      <div class="form-group">
+                        <label><i class="fas fa-images"> Image Url: </i></label>
+                        <input class="form-control" type="text" value="./imgs/loading_img2.jpg" id="input_content_img">
+                      </div>
+                      <div class="form-group">
+                        <label><i class="fas fa-magic"> Image Animation </i></label>
+                        <select id="input_content_img_anim" class="form-control form-control-sm">
+                          <option selected value=""> -- select an option / Remove all -- </option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label><i class="fab fa-css3"> Background Image CSS: </i></label>
+                        <textarea class="form-control" rows="5" id="input_content_img_css">background-size:cover;background-position:50% 0%;</textarea>
+                        <span>See <a href="https://www.w3schools.com/css/css_background.asp" target="_blank">CSS</a> properties for div background images</span>
+                      </div>
+                  </form>
+                  <button id="apply_img_bkd" type="button" class="btn btn-primary">Apply Changes</button>
+              </div>
+              <div class="tab-pane fade" id="edit_content_map" role="tabpanel" aria-labelledby="map-tab">
+                  <i class="fas fa-5x fa-globe-asia"> </i> Add a new Map to Main Stage slide...
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Manage Slides -->
+    <div class="modal fade" id="manage_slides" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5>Manage Slides</h5>
+          </div>
+          <div class="modal-body">
+             Drag and drop >> order slides or Delete slides (Main Slide can not be deleted or moved)
+             <ul id="slides-home" class="list-group notsortable">
+
+             </ul>
+             <ul id="slides-list" class="list-group sortable">
+
+             </ul>
+             <hr></hr><button class="btn btn-sm btn-success" id="save-slides-reordered">Reorder</button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Save Changes -->
+    <div class="modal fade" id="save_changes_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5>Save Changes</h5>
+          </div>
+          <div id="save_changes_modal_body" class="modal-body" style="text-align:center;">
+             <i class="fas fa-2x fa-hdd"> </i> Saved
+             <div id="save_changes_modal_output">
+
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    </body>
+
+        <!-- Popper JS -->
+        <script src="./libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="./libs/bootstrap/4.1.0/css/bootstrap.min.css">
+
+        <!-- Latest compiled JavaScript -->
+        <script src="./libs//bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+        <!-- Fontawsome 5 -->
+        <link rel="stylesheet" href="./libs/fontawesome-free-5.2.0-web/css/all.css" crossorigin="anonymous">
+
+        <!-- CkEditor 4.10 -->
+        <script src="./libs/ckeditor/ckeditor.js"></script>
+
+        <!-- Vanilla colorPicker min js  | https://www.cssscript.com/color-picker-alpha-selection/ -->
+        <script src="./libs/vanilla-picker/vanilla-picker.min.js"></script>
+
+        <!-- Main CSS -->
+        <link rel="stylesheet" href="./css/main.css">
+        <link rel="stylesheet" href="./css/overrides.css">
+        <link rel="stylesheet" href="./css/template.css">
+
+</html>
