@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document id="i156314511">
+
+	<open>1</open>
+	<Placemark>
+		<ExtendedData>
+			<Data name="amenity">
+				<value>drinking_water</value>
+			</Data>
+			<Data name="id">
+				<value>node/1945017034</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>12.7632602,42.9590914,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>1</name>
+		<ExtendedData>
+			<Data name="cat">
+			</Data>
+			<Data name="name">
+				<value>1</value>
+			</Data>
+			<Data name="descrizione">
+				<value>Dalla Cripta, dove è possibile parcheggiare, si percorre per un breve tratto la strada asfaltata. Giunti alla curva si prende a sx una sterrata che sale in mezzo ad un bosco di lecci e roverelle. Trascurando alcuni bivi, si segue la strada pricipale girando intorno al M. Serrone. A un incrocio (punto 3) si prosegue diritto (segnavia 60 - Pale) sino ad una radura pianeggiante &quot;Prato Lungo&quot; (761 m) dove termina la strerrata</value>
+			</Data>
+		</ExtendedData>
+		<LineString>
+			<coordinates>
+				12.76318430900574,42.95885858830289,0 12.7628892660141,42.9587427737608,0 12.76279270648956,42.95892532878744,0 12.76266127824783,42.95930025192869,0 12.76268810033798,42.95952598989096,0 12.76277929544449,42.95960058138341,0 12.76293218135834,42.95966535813241,0 12.76299190481267,42.9598907324097,0 12.76302120874479,42.96016133506556,0 12.76314045228568,42.96032453522106,0 12.76324522121379,42.96067130226369,0 12.76315177159369,42.96130720489225,0 12.76301745226691,42.96177569426744,0 12.76319245878548,42.96191125806124,0 12.76326105786091,42.96217688351087,0 12.76344545828196,42.96248498989043,0 12.7634971762122,42.96278475704098,0 12.76343903717097,42.96309386727806,0 12.76336880032906,42.96330507069771,0 12.76348294334818,42.96347469262975,0 12.76353861016904,42.96358416510216,0 12.76326432464059,42.96405336524231,0 12.7632022875864,42.96446656760584,0 12.76303570430311,42.96468072573655,0 12.76302420277554,42.9648265858262,0 12.76315118142873,42.96520825884413,0 12.76317121326601,42.96551889713259,0 12.76322376423694,42.96579569933076,0 12.76363509347831,42.96610249634081,0 12.76392342481982,42.96634943492338,0 12.76428369466576,42.96677013779888,0 12.76452138123443,42.96711950071267,0 12.76494295416332,42.96757587113457,0 12.76642552629798,42.96854705486549,0 12.76703724834161,42.96893818593917,0 12.76752181205088,42.96938428560659,0 12.7679138116188,42.96979410550855,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark>
+		<name>2</name>
+		<ExtendedData>
+			<Data name="cat">
+			</Data>
+			<Data name="name">
+				<value>2</value>
+			</Data>
+			<Data name="descrizione">
+				<value>Al bivio successivo (punto 5) trascurare il sentiero che scende a sx (segnavia 60) verso Pale e prendere quello a dx che sale blandamente nel bosco. Si arriva a una piccola radura (punto 6) con vista sul Sasso di Pale, caratterizzato da una grande croce metallica e da una antenna per le telecomunicazioni. Il sentiero rientra nel bosco, oltrepassa un fosso e arriva ad un&apos;altra radura più estesa (punto 7). Al rientro nel bosco il sentiero diventa una stada di servizio piuttosto ampia. Si prosegue sulla strada di servizio sino a un sentiero poco evidente sulla dx (punto 8 - 915 m s.l.m)</value>
+			</Data>
+			<Data name="_storage_options">
+				<value>[object Object]</value>
+			</Data>
+		</ExtendedData>
+		<LineString>
+			<coordinates>
+				12.7679138116188,42.96979410550855,0 12.76838296495996,42.97000658102196,0 12.76874446396163,42.97018949851163,0 12.76904522022235,42.97031026973522,0 12.76948942520086,42.97033860687069,0 12.76970713198574,42.97046565734954,0 12.76993808275666,42.97057902093728,0 12.77016723665217,42.97065388055658,0 12.77041119556371,42.97083099424794,0 12.77075866050785,42.97095841652356,0 12.77105983946533,42.97106770007969,0 12.7712631874315,42.97117794955784,0 12.77146653539766,42.971288199036,0 12.7716749341512,42.97136694716596,0 12.77190021420451,42.97141155184774,0 12.77228703342788,42.97157128131409,0 12.77249717409927,42.97158099011986,0 12.7726094680449,42.97155112550534,0 12.77269118693681,42.97152987762193,0 12.77274438977497,42.97150920674502,0 12.77280700629459,42.97147244531268,0 12.77292493445686,42.97141714038326,0 12.77309468664434,42.97137448220683,0 12.77319397002589,42.97133332487224,0 12.77330564372499,42.97135202447438,0 12.77347292053735,42.97131456127779,0 12.7735726625133,42.97131291114734,0 12.77366555475656,42.97137123781416,0 12.77377581865933,42.97152100676625,0 12.77386854458525,42.97161073663609,0 12.77395863618669,42.97171590508619,0 12.7741309248247,42.97181980002308,0 12.77427975881553,42.97192323841205,0 12.77457732474596,42.97213298527599,0 12.77479033916618,42.97230086975381,0 12.77496149196954,42.97243634052712,0 12.77515558338332,42.97258662038599,0 12.77549640597977,42.97284719426628,0 12.77568001135848,42.97298160614713,0 12.77579826707015,42.97306284634344,0 12.77597578859089,42.97316560752186,0 12.77631595471862,42.97338766857956,0 12.77648752775564,42.97351165462246,0 12.77663678363577,42.97360360752932,0 12.77676382548428,42.97366065673943,0 12.77688799274301,42.97368892342654,0 12.77703284462378,42.97368599270911,0 12.7771780068068,42.97367444987932,0 12.77731925961964,42.97366283091512,0 12.77738305643405,42.97370122954585,0 12.77768039726817,42.97372197409718,0 12.77880499038841,42.97378402190594,0 12.77972626919766,42.97374116730834,0 12.77993419971079,42.97372040146167,0 12.78035909377374,42.97351101585026,0 12.78074860992286,42.97334046690833,0 12.78100881045461,42.97324752301924,0 12.78182563263691,42.97308607816436,0 12.78217943453735,42.97304534632718,0 12.78233406638857,42.97289220040648,0 12.78248974214827,42.97260946755751,0 12.78276153018843,42.97238435422992,0 12.78334078307131,42.97196694413432,0 12.78380929782678,42.97168031058779,0 12.78415368726244,42.97145147066248,0 12.78462883631858,42.9713103211043,0 12.78482163693434,42.97120878148449,0 12.78499375047932,42.97110808033005,0 12.78508537107007,42.97115011056103,0 12.78514637099105,42.97115580908923,0 12.78518091503279,42.97111011704084,0 12.78533360882326,42.97094047022822,0 12.78550770635774,42.97058982610353,0 12.78561596706867,42.97046315628688,0 12.78576683169146,42.97045938907839,0 12.78603503583521,42.97048092253749,0 12.78612751999751,42.97042577583704,0 12.786166708942,42.97030042304695,0 12.78636665074308,42.97008141734889,0 12.78659704554223,42.96991272820712,0 12.78686375173505,42.96973700851574,0 12.78689094621065,42.96959676394242,0 12.78682466084036,42.96944909375532,0 12.78686720860878,42.96921410594041,0 12.78702318121048,42.96904393678445,0 12.78695473010047,42.96886796904241,0 12.78716130410927,42.9686236557711,0 12.78730147093158,42.96835400024429,0 12.78735741950181,42.96798227447152,0 12.78735387986293,42.96766867275145,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark>
+		<name>3</name>
+		<ExtendedData>
+			<Data name="cat">
+			</Data>
+			<Data name="name">
+				<value>3</value>
+			</Data>
+			<Data name="descrizione">
+				<value>Si lascia la strada di servizio, che scende verso l&apos;abitato di Casale, e si gira a dx verso SW su un sentiero poco evidente che costeggia una recinzione (punto 8). Facendo attenzione alla recinzione e alla direzione con la bussola non dovrebbe essere difficile individuare il sentiero. Al termine del sentiero si piega leggermente a dx e si sale su un evidente fascia di conglomerato, piuttosto ripida (punto 9). Si prosegue verso W su una radura con bassi ginepri sino alla sella tra le due cime del M. Serrone (punto 10): a sx Le Pianacce (quota 1029 m) e adx il M. Serrone (quota 1046 m). Lasciando il sentiero e procedendo verso S, si supera una dolina e in pochi minuti si raggiunge la rotonda cima del M. Serrone (punto 11).</value>
+			</Data>
+		</ExtendedData>
+		<LineString>
+			<coordinates>
+				12.78735387986293,42.96766867275145,0 12.787344121895,42.96764210078161,0 12.78700568996327,42.96753212057338,0 12.78680636630151,42.96738304938032,0 12.7866998204964,42.9672302325325,0 12.7866271632929,42.96688106556302,0 12.78654850213741,42.96669820955179,0 12.78639776525779,42.96652629061061,0 12.7862550035313,42.96642366320941,0 12.78592903996989,42.96632517239281,0 12.78568437094286,42.96627835822003,0 12.78541863566564,42.96626536132829,0 12.78525716600478,42.96624687186178,0 12.78509486980558,42.96625141197473,0 12.78495087088753,42.96618332771047,0 12.78483593328091,42.96611926376797,0 12.78463755854648,42.96616957944812,0 12.78449877645504,42.96624755241496,0 12.78435587010236,42.96629471759863,0 12.78413099391561,42.96629420344855,0 12.78386664943457,42.96622762790713,0 12.78359570041698,42.96619933348827,0 12.78335638619685,42.96616396940457,0 12.78319986821331,42.96615325490541,0 12.78302023802485,42.96620354782308,0 12.78282506607365,42.96624969830448,0 12.78266276983124,42.96625423496217,0 12.78247063209927,42.96621594235445,0 12.7822475497313,42.96616552668877,0 12.78208154481828,42.96612773998859,0 12.78181706547463,42.96606499806668,0 12.78162987937574,42.96603448198478,0 12.78150377220283,42.96590528481858,0 12.78141178408464,42.96569992978282,0 12.78129421682809,42.96543352686749,0 12.78124168169239,42.96515896859911,0 12.78126598331817,42.96470545027347,0 12.78142248847363,42.96432380063919,0 12.78152648157615,42.96366373753612,0 12.78172892091209,42.96282933676666,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark>
+		<name>4</name>
+		<ExtendedData>
+			<Data name="cat">
+			</Data>
+			<Data name="name">
+				<value>4</value>
+			</Data>
+			<Data name="_storage_options">
+				<value>[object Object]</value>
+			</Data>
+			<Data name="descrizione">
+				<value>In cima si gode di una bella vista sui rilievi umbri. Da N a E si estende L&apos;Appennino preceduto da colline e vallate: a SE il vicino M. Aguzzo, a S la catena del M. Serano - M. Brunette e a NW il M. Subasio. Si scende in direzione NW con vista sul M. Subasio. Giunti ad unimpluvio si gira a sx (SW) su un sentiero poco marcato che si mantiene sul bordo dell&apos;impluvio. Si scende in modo disagevole tra rovi e cespugli sino a ritrovare un evidente sentiero che proviene dal versante opposto (punto 12). Superata una radura da cui si vede l&apos;Abbazia, il sentiero inizia a scendere leggermente sino a passare sotto un elettrodotto ed a arrivare a una strada di servizio (punto 13). Si va a dx in discesa, si passa di nuovo sotto l&apos;elettrodotto e dopo un impluvio si raggiunge un bivio (punto 14). Si svolta a sx in discesa e si arriva alla sterrata percorsa all&apos;inizio. Svoltando ancora a sx in discesa si giunge di nuovo alla Cripta (punto 2)</value>
+			</Data>
+		</ExtendedData>
+		<LineString>
+			<coordinates>
+				12.78172892091209,42.96282933676666,0 12.78114725943824,42.96312322444246,0 12.7800846021219,42.96335816671409,0 12.77959695355,42.9637576121747,0 12.77881908398263,42.96392118288757,0 12.77860131410121,42.96413608102586,0 12.77835475741636,42.96420435887251,0 12.77801158054611,42.96420069819708,0 12.77769262084954,42.96432492946393,0 12.77765141732504,42.96454879711147,0 12.77757422465118,42.96458734839744,0 12.7775338485231,42.96457225819651,0 12.77750748271519,42.96456239651769,0 12.77742321641247,42.96448742783122,0 12.77731607870572,42.96442147691512,0 12.77723688791678,42.96438445533088,0 12.77719344368565,42.96433866603417,0 12.77719252396419,42.96427477859061,0 12.77708429695666,42.96414966779759,0 12.77695607694445,42.96404309274995,0 12.77680244847488,42.963926561671,0 12.77677264610604,42.96385974743806,0 12.77667149386738,42.96376236379101,0 12.77653768541289,42.96361390936568,0 12.77643289330974,42.96352843846605,0 12.77637242535461,42.96342066443201,0 12.77628756538644,42.96328590830852,0 12.77625258821052,42.96323528481274,0 12.77611822850165,42.96316256850636,0 12.77596968020757,42.9629794600097,0 12.77593513634383,42.96294268299562,0 12.77571369839443,42.96276094070331,0 12.77551308671527,42.96259824490993,0 12.77546689013818,42.9623717982915,0 12.77533075628735,42.96210438084498,0 12.77531686657588,42.96199946065585,0 12.7752013474203,42.96182666409456,0 12.77509331703186,42.96160470315432,0 12.77489483356476,42.96138093569459,0 12.77477145195007,42.96121801676896,0 12.77468964457512,42.96100013656768,0 12.77462258934975,42.96083721663369,0 12.77458503842354,42.96065957452732,0 12.77451932430267,42.96044169234843,0 12.77446280072108,42.96020975578696,0 12.7743981313211,42.96003817886829,0 12.77435852812241,42.95988601385179,0 12.77431231767763,42.95973845136818,0 12.77423848431834,42.95964239339615,0 12.77417498530788,42.95951367143974,0 12.77413732588102,42.95941096792772,0 12.77410060110596,42.95926832097492,0 12.77403957829944,42.95908498707388,0 12.77401664420265,42.95900647801027,0 12.77395839273103,42.95892491625705,0 12.77392878692743,42.95877875365872,0 12.77398100979793,42.95864572707039,0 12.77398496534736,42.95854564319713,0 12.77412718682448,42.95850359169279,0 12.77422700519387,42.95845157305448,0 12.77460454910303,42.9584442632133,0 12.77479746659181,42.95841194607819,0 12.77508102212192,42.95845433106272,0 12.775406999521,42.95849407517328,0 12.77608336980482,42.95843044880288,0 12.77637681877067,42.9583381644384,0 12.77651673110911,42.95825953179966,0 12.77600763909445,42.9582910722174,0 12.77537982419079,42.95828539979343,0 12.77502328733192,42.95810388195007,0 12.77464349806921,42.95803014017324,0 12.77443422643466,42.95795072585322,0 12.77377540832588,42.95783727664683,0 12.77344212387085,42.95785429404111,0 12.7729228201851,42.957939380942,0 12.77268254534543,42.95808119218199,0 12.77252752931984,42.95826838251836,0 12.77213998925585,42.95949928660654,0 12.77213223845457,42.95984529668595,0 12.77215549085841,42.96009487651887,0 12.77214774005713,42.96020832156281,0 12.77210123524945,42.96021399380952,0 12.77194621922385,42.9601742880716,0 12.77172144598674,42.96004949844274,0 12.77158193156371,42.95999844806708,0 12.77130290271764,42.95997575899763,0 12.7705898289999,42.95991903628741,0 12.76994651249368,42.95998143126577,0 12.76872188589147,42.96025369952181,0 12.76793905496222,42.96054298322373,0 12.76752826249439,42.96083793775471,0 12.76703221121249,42.96141082616873,0 12.76689269678945,42.96168876021022,0 12.76657491393698,42.96210849495425,0 12.76640439630882,42.96220492009907,0 12.76598585303972,42.9622616407019,0 12.7652650285207,42.96235806560671,0 12.76502475368103,42.96243180219664,0 12.76489299005928,42.96248285055328,0 12.76486198685416,42.96267569951836,0 12.76454420400169,42.96294795585168,0 12.76395514310442,42.96331663438261,0 12.76360560089525,42.96358193207786,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark>
+		<name>5</name>
+		<ExtendedData>
+			<Data name="name">
+				<value>5</value>
+			</Data>
+			<Data name="descrizione">
+				<value>Dalla Cripta, in pochi minuti, percorrendo un sentiero che si inoltra in una lecceta con bellissimi esemplari, si arriva a una cappellina ottagonale. Il sentiero si imbocca accanto alla fonte, percorrendolo si aggira un piccolo fosso e si raggiunge la cappellina. Il sentiero posegue oltre facendo una curva a sx e dopo pochi metri termina a in un belvedere con vista sul M. Aguzzo e sul M. Cologna (punto 15)</value>
+			</Data>
+			<Data name="_storage_options">
+				<value>[object Object]</value>
+			</Data>
+		</ExtendedData>
+		<LineString>
+			<coordinates>
+				12.76327013969421,42.95888214377629,0 12.76340693235397,42.95892729174178,0 12.76352763175964,42.95894888423531,0 12.76366978883743,42.95892729174178,0 12.76380121707916,42.95889588446494,0 12.76399165391922,42.95883699577768,0 12.76412308216095,42.95880166253826,0 12.76426523923874,42.9587270700773,0 12.76438593864441,42.95861125528766,0 12.76457101106644,42.9584679587208,0 12.76470243930817,42.95832662479373,0 12.76487678289413,42.95813817905265,0 12.76504039764404,42.95789476911626,0 12.76516646146774,42.95765724720172,0 12.76522815227509,42.95751198541373,0 12.76526838541031,42.95737064929088,0 12.76531666517258,42.95721360877364,0 12.76534885168076,42.95711742125889,0 12.76538372039795,42.95707227196544,0 12.76542663574219,42.95705067881338,0 12.76549100875854,42.95703301168332,0 12.76559561491013,42.95702123359381,0 12.76579409837723,42.95701632605584,0 12.76584103703499,42.9570084739943,0 12.76588931679726,42.95698393629546,0 12.76590272784233,42.95695056500939,0 12.76590675115585,42.95691130464961,0 12.76588931679726,42.95686321067476,0 12.7658423781395,42.95680530155313,0 12.76557683944702,42.95643036320966,0 12.76548832654953,42.95630472890819,0 12.76540786027908,42.95619479868398,0 12.76524156332016,42.95603186602617,0 12.76502698659897,42.95572366692734,0 12.76488751173019,42.95553913933964,0 12.76484191417694,42.95545276453398,0 12.76484191417694,42.95540565095255,0 12.76487410068512,42.95538405721565,0 12.76492774486542,42.95536835267497,0 12.76501089334488,42.95537031574278,0 12.76506990194321,42.95539190948449,0 12.7651047706604,42.9554017248191,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark>
+		<name>01. Abbazzia di Sassovivo</name>
+		<description>Convento benedettino fondato nel 1070 (quota 570 m). http://it.wikipedia.org/wiki/Abbazia_di_Sassovivo Link a Wikipedia
+
+https://upload.wikimedia.org/wikipedia/commons/6/68/Abbazia_di_sassovivo_01.JPG?uselang=it
+Photo by http://commons.wikimedia.org/wiki/User:Sailko Sailko, license http://www.gnu.org/copyleft/fdl.html GFDL or http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0
+Date 2014-12-27 14:42:12
+Il chiostro
+https://dl.dropboxusercontent.com/u/67781375/3d_serrone/IMG_20141227_124212bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0</description>
+		<ExtendedData>
+			<Data name="name">
+				<value>01. Abbazzia di Sassovivo</value>
+			</Data>
+			<Data name="description">
+				<value>Convento benedettino fondato nel 1070 (quota 570 m). http://it.wikipedia.org/wiki/Abbazia_di_Sassovivo Link a Wikipedia
+
+https://upload.wikimedia.org/wikipedia/commons/6/68/Abbazia_di_sassovivo_01.JPG?uselang=it
+Photo by http://commons.wikimedia.org/wiki/User:Sailko Sailko, license http://www.gnu.org/copyleft/fdl.html GFDL or http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0
+Date 2014-12-27 14:42:12
+Il chiostro
+https://dl.dropboxusercontent.com/u/67781375/3d_serrone/IMG_20141227_124212bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0</value>
+			</Data>
+			<Data name="quota">
+				<value>570</value>
+			</Data>
+			<Data name="descrizione">
+				<value>Convento benedettino fondato nel 1070</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>12.76225090026856,42.95654814513435,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>02. Cripta</name>
+		<description>Cripta del beato Alano (quota 590 m).
+
+http://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Sassovivo%2C_cripta_del_beato_alano_01.JPG/800px-Sassovivo%2C_cripta_del_beato_alano_01.JPG
+Photo by http://commons.wikimedia.org/wiki/User:Sailko Sailko, license http://www.gnu.org/copyleft/fdl.html GFDL or http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0</description>
+		<ExtendedData>
+			<Data name="name">
+				<value>02. Cripta</value>
+			</Data>
+			<Data name="quota">
+				<value>590</value>
+			</Data>
+			<Data name="description">
+				<value>Cripta del beato Alano (quota 590 m).
+
+http://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Sassovivo%2C_cripta_del_beato_alano_01.JPG/800px-Sassovivo%2C_cripta_del_beato_alano_01.JPG
+Photo by http://commons.wikimedia.org/wiki/User:Sailko Sailko, license http://www.gnu.org/copyleft/fdl.html GFDL or http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0</value>
+			</Data>
+			<Data name="descrizione">
+				<value>Cripta del beato Alano</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>12.76315614581108,42.95891158810537,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>03. bivio</name>
+		<description>Proseguire diritto - segnavia 60 Pale (quota 725 m).</description>
+		<ExtendedData>
+			<Data name="name">
+				<value>03. bivio</value>
+			</Data>
+			<Data name="descrizione">
+				<value>Proseguire diritto - segnavia 60 Pale</value>
+			</Data>
+			<Data name="quota">
+				<value>725</value>
+			</Data>
+			<Data name="description">
+				<value>Proseguire diritto - segnavia 60 Pale (quota 725 m).</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>12.76475071907043,42.96729675958823,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>04. Prato lungo</name>
+		<description>Radura pianeggiante dove finisce la strada sterrata (quota 760 m).</description>
+		<ExtendedData>
+			<Data name="name">
+				<value>04. Prato lungo</value>
+			</Data>
+			<Data name="quota">
+				<value>760</value>
+			</Data>
+			<Data name="description">
+				<value>Radura pianeggiante dove finisce la strada sterrata (quota 760 m).</value>
+			</Data>
+			<Data name="descrizione">
+				<value>Radura pianeggiante dove finisce la strada sterrata</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>12.76748657226563,42.96933007000006,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>05. bivio</name>
+		<description>Proseguire a dx sul sentiero in leggera salita (quota 760 m).</description>
+		<ExtendedData>
+			<Data name="name">
+				<value>05. bivio</value>
+			</Data>
+			<Data name="descrizione">
+				<value>Proseguire a dx sul sentiero in leggera salita</value>
+			</Data>
+			<Data name="quota">
+				<value>760</value>
+			</Data>
+			<Data name="description">
+				<value>Proseguire a dx sul sentiero in leggera salita (quota 760 m).</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>12.76852458715439,42.97002679700545,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>06. piccola radura</name>
+		<description>Radura con vista sul Sasso di Pale, a N-NW (quota 810 m).
+
+Date 2014-12-27 11:11:43
+https://dl.dropboxusercontent.com/u/5599245/prove/serrone/IMG_20141227_091124_bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0</description>
+		<ExtendedData>
+			<Data name="name">
+				<value>06. piccola radura</value>
+			</Data>
+			<Data name="descrizione">
+				<value>Radura con vista sul Sasso di Pale, a N-NW</value>
+			</Data>
+			<Data name="description">
+				<value>Radura con vista sul Sasso di Pale, a N-NW (quota 810 m).
+
+Date 2014-12-27 11:11:43
+https://dl.dropboxusercontent.com/u/5599245/prove/serrone/IMG_20141227_091124_bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0</value>
+			</Data>
+			<Data name="quota">
+				<value>810</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>12.77263641357422,42.97149676696439,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>07. ampia radura</name>
+		<description>Radura, al rientro nel bosco il sentiero diventa una stada di servizio per la gestione dello stesso (quota 850 m).
+
+Date 2014-12-27 11:22:20
+Vista del Sasso di Pale e del M. Penninno sullo sfondo.
+https://dl.dropboxusercontent.com/u/5599245/prove/serrone/IMG_20141227_092220_bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0</description>
+		<ExtendedData>
+			<Data name="name">
+				<value>07. ampia radura</value>
+			</Data>
+			<Data name="quota">
+				<value>850</value>
+			</Data>
+			<Data name="description">
+				<value>Radura, al rientro nel bosco il sentiero diventa una stada di servizio per la gestione dello stesso (quota 850 m).
+
+Date 2014-12-27 11:22:20
+Vista del Sasso di Pale e del M. Penninno sullo sfondo.
+https://dl.dropboxusercontent.com/u/5599245/prove/serrone/IMG_20141227_092220_bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0</value>
+			</Data>
+			<Data name="descrizione">
+				<value>Radura, al rientro nel bosco il sentiero diventa una stada di servizio per la gestione dello stesso</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>12.77677774429321,42.97366338760123,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>08. bivio</name>
+		<description>Bivio con piccolo sentiero poco evidente a dx, verso SW, che all&apos;inizio costeggia una recinzione (quota 915 m).</description>
+		<ExtendedData>
+			<Data name="name">
+				<value>08. bivio</value>
+			</Data>
+			<Data name="descrizione">
+				<value>Bivio con piccolo sentiero poco evidente a dx, verso SW, che all&apos;inizio costeggia una recinzione</value>
+			</Data>
+			<Data name="quota">
+				<value>915</value>
+			</Data>
+			<Data name="description">
+				<value>Bivio con piccolo sentiero poco evidente a dx, verso SW, che all&apos;inizio costeggia una recinzione (quota 915 m).</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>12.78735503554344,42.96768537044147,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>09. conglomerato</name>
+		<description>Il percorso sale in maniera piuttosto ripida su di un affioramento di conglomerati (quota 955 m).
+
+Date 2014-12-27 11:56:34
+Vista verso E. Sullo sfondo l&apos;Appennino, con il massicccio del M. Bove
+https://dl.dropboxusercontent.com/u/67781375/3d_serrone/IMG_20141227_095616_bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0</description>
+		<ExtendedData>
+			<Data name="name">
+				<value>09. conglomerato</value>
+			</Data>
+			<Data name="quota">
+				<value>955</value>
+			</Data>
+			<Data name="descrizione">
+				<value>Il percorso sale in maniera piuttosto ripida su di un affioramento di conglomerati</value>
+			</Data>
+			<Data name="description">
+				<value>Il percorso sale in maniera piuttosto ripida su di un affioramento di conglomerati (quota 955 m).
+
+Date 2014-12-27 11:56:34
+Vista verso E. Sullo sfondo l&apos;Appennino, con il massicccio del M. Bove
+https://dl.dropboxusercontent.com/u/67781375/3d_serrone/IMG_20141227_095616_bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>12.78646789491177,42.96696309760589,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>10. sella</name>
+		<description>Sella tra le due cime del M. Serrone (quota 995 m): a sx Le Pianacce (quota 1029 m) e a dx il M. Serrone (quota 1046 m)</description>
+		<ExtendedData>
+			<Data name="description">
+				<value>Sella tra le due cime del M. Serrone (quota 995 m): a sx Le Pianacce (quota 1029 m) e a dx il M. Serrone (quota 1046 m)</value>
+			</Data>
+			<Data name="name">
+				<value>10. sella</value>
+			</Data>
+			<Data name="descrizione">
+				<value>Sella tra le due cime del M. Serrone</value>
+			</Data>
+			<Data name="quota">
+				<value>995</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>12.78209924697876,42.96589145944586,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>11. Cima</name>
+		<description>Cima del M. Serrone (quota 1046 m). Si gode di una bella vista sui rilievi umbri. Da N a E si estende l&apos;Appennino preceduto da colline e vallate: a SE il vicino M. Aguzzo, a S la catena del M. Serano - M. Brunette e a NW il M. Subasio
+
+Date 2014-12-27 12:18:09
+Vista a N. In primo piano il M. Burano - M. d&apos;Afrile e sullo sfondo il M. Pennino
+https://dl.dropboxusercontent.com/u/67781375/3d_serrone/IMG_20141227_101809bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0
+Date 2014-12-27 12:18:22
+Vista a NE. Sullo sfondo da sx a dx: M. Pennino, M. Igno, M. Maggio e M. Pretoglio
+https://dl.dropboxusercontent.com/u/67781375/3d_serrone/IMG_20141227_101822bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0
+Date 2014-12-27 12:18:33
+Vista a E. In primo piano M. Santo Stefano (a dx), dietro la dorsale del M. Talogna - M. Cipolletta. Sullo sfondo (al centro) il M. Bove
+https://dl.dropboxusercontent.com/u/67781375/3d_serrone/IMG_20141227_101833bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0
+Date 2014-12-27 12:18:52
+Vista a SE. In primo piano il M. Aguzzo (a dx) e il M. Santo Stefano (a sx). Sullo sfondo (al centro) il M. Puranno
+https://dl.dropboxusercontent.com/u/67781375/3d_serrone/IMG_20141227_101852bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0
+Date 2014-12-27 11:19:10
+Vista a SW. In primo piano il versante occidentale del M. Cologna. Sullo sfondo da sx a dx: Monteluco (Spoleto), M. Torre Maggiore (Terni) e la dorsale dei M. Martani
+https://dl.dropboxusercontent.com/u/67781375/3d_serrone/IMG_20141227_101910bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0
+Date 2014-12-27 12:27:18
+Vista a WNW sulla Valle Umbra e sulla cittadina di Foligno.
+https://dl.dropboxusercontent.com/u/67781375/3d_serrone/IMG_20141227_102718_bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0
+Date 2014-12-27 12:16:25
+Vista a NW sul M. Subasio (a sx)
+https://dl.dropboxusercontent.com/u/67781375/3d_serrone/IMG_20141227_101625_bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0</description>
+		<ExtendedData>
+			<Data name="name">
+				<value>11. Cima</value>
+			</Data>
+			<Data name="descrizione">
+				<value>Cima del M. Serrone</value>
+			</Data>
+			<Data name="quota">
+				<value>1046</value>
+			</Data>
+			<Data name="description">
+				<value>Cima del M. Serrone (quota 1046 m). Si gode di una bella vista sui rilievi umbri. Da N a E si estende l&apos;Appennino preceduto da colline e vallate: a SE il vicino M. Aguzzo, a S la catena del M. Serano - M. Brunette e a NW il M. Subasio
+
+Date 2014-12-27 12:18:09
+Vista a N. In primo piano il M. Burano - M. d&apos;Afrile e sullo sfondo il M. Pennino
+https://dl.dropboxusercontent.com/u/67781375/3d_serrone/IMG_20141227_101809bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0
+Date 2014-12-27 12:18:22
+Vista a NE. Sullo sfondo da sx a dx: M. Pennino, M. Igno, M. Maggio e M. Pretoglio
+https://dl.dropboxusercontent.com/u/67781375/3d_serrone/IMG_20141227_101822bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0
+Date 2014-12-27 12:18:33
+Vista a E. In primo piano M. Santo Stefano (a dx), dietro la dorsale del M. Talogna - M. Cipolletta. Sullo sfondo (al centro) il M. Bove
+https://dl.dropboxusercontent.com/u/67781375/3d_serrone/IMG_20141227_101833bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0
+Date 2014-12-27 12:18:52
+Vista a SE. In primo piano il M. Aguzzo (a dx) e il M. Santo Stefano (a sx). Sullo sfondo (al centro) il M. Puranno
+https://dl.dropboxusercontent.com/u/67781375/3d_serrone/IMG_20141227_101852bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0
+Date 2014-12-27 11:19:10
+Vista a SW. In primo piano il versante occidentale del M. Cologna. Sullo sfondo da sx a dx: Monteluco (Spoleto), M. Torre Maggiore (Terni) e la dorsale dei M. Martani
+https://dl.dropboxusercontent.com/u/67781375/3d_serrone/IMG_20141227_101910bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0
+Date 2014-12-27 12:27:18
+Vista a WNW sulla Valle Umbra e sulla cittadina di Foligno.
+https://dl.dropboxusercontent.com/u/67781375/3d_serrone/IMG_20141227_102718_bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0
+Date 2014-12-27 12:16:25
+Vista a NW sul M. Subasio (a sx)
+https://dl.dropboxusercontent.com/u/67781375/3d_serrone/IMG_20141227_101625_bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>12.78160572052002,42.96260968381487,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>12. sentiero evidente</name>
+		<description>Sentiero che proviene dl versante opposto (quota 885 m)</description>
+		<ExtendedData>
+			<Data name="name">
+				<value>12. sentiero evidente</value>
+			</Data>
+			<Data name="description">
+				<value>Sentiero che proviene dl versante opposto (quota 885 m)</value>
+			</Data>
+			<Data name="descrizione">
+				<value>Sentiero che proviene dl versante opposto</value>
+			</Data>
+			<Data name="quota">
+				<value>885</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>12.77465611696243,42.96092358388135,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>13. strada di servizio</name>
+		<description>Il sentiero si ricongiunge a una sterrata (strada di servizio). 
+Dal balcone roccioso sul baratro del Fosso Renaro si vede il M. Colognola e il M. Aguzzo (quota 850 m)
+
+Date 2014-12-27 13:17:36
+Vista a SE sulla valle del Fosso Renaro
+https://dl.dropboxusercontent.com/u/67781375/3d_serrone/IMG_20141227_111736bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0
+Date 2014-12-27 13:17:36
+Simpatico affioramento di rocce calcaree stratificate (formazione della Maiolica)
+https://dl.dropboxusercontent.com/u/67781375/3d_serrone/IMG_20141227_111847bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0</description>
+		<ExtendedData>
+			<Data name="name">
+				<value>13. strada di servizio</value>
+			</Data>
+			<Data name="quota">
+				<value>850</value>
+			</Data>
+			<Data name="descrizione">
+				<value>Dal balcone roccioso sul baratro del Fosso Renaro si vede il M. Colognola e il M. Aguzzo</value>
+			</Data>
+			<Data name="description">
+				<value>Il sentiero si ricongiunge a una sterrata (strada di servizio). 
+Dal balcone roccioso sul baratro del Fosso Renaro si vede il M. Colognola e il M. Aguzzo (quota 850 m)
+
+Date 2014-12-27 13:17:36
+Vista a SE sulla valle del Fosso Renaro
+https://dl.dropboxusercontent.com/u/67781375/3d_serrone/IMG_20141227_111736bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0
+Date 2014-12-27 13:17:36
+Simpatico affioramento di rocce calcaree stratificate (formazione della Maiolica)
+https://dl.dropboxusercontent.com/u/67781375/3d_serrone/IMG_20141227_111847bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>12.7764505147934,42.95823632794816,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>14. bivio</name>
+		<description>Si svolta a sx in discesa e si arriva alla sterrata percorsa all&apos;inizio</description>
+		<ExtendedData>
+			<Data name="name">
+				<value>14. bivio</value>
+			</Data>
+			<Data name="description">
+				<value>Si svolta a sx in discesa e si arriva alla sterrata percorsa all&apos;inizio</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>12.76640027761459,42.96219748670156,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>15. belvedere</name>
+		<description>Piazzola con vista sul M. Aguzzo e sul M. Cologna
+
+Date 2014-12-27 14:12:23
+Vista a ESE sulla valle del Fosso Renaro e sul M. Aguzzo
+https://dl.dropboxusercontent.com/u/67781375/3d_serrone/IMG_20141227_121223bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0</description>
+		<ExtendedData>
+			<Data name="name">
+				<value>15. belvedere</value>
+			</Data>
+			<Data name="description">
+				<value>Piazzola con vista sul M. Aguzzo e sul M. Cologna
+
+Date 2014-12-27 14:12:23
+Vista a ESE sulla valle del Fosso Renaro e sul M. Aguzzo
+https://dl.dropboxusercontent.com/u/67781375/3d_serrone/IMG_20141227_121223bis.jpg
+Photo by https://wiki.openstreetmap.org/wiki/User:Freddi Freddi, license  http://creativecommons.org/licenses/by-sa/3.0/ CC-BY-SA-3.0</value>
+			</Data>
+		</ExtendedData>
+		<Point>
+			<coordinates>12.76507794857025,42.95538405721565,0</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>
